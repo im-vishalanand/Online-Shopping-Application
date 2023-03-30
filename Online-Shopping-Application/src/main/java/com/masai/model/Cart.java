@@ -1,7 +1,6 @@
 package com.masai.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.ElementCollection;
@@ -10,8 +9,14 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Cart {
 
 	@Id
@@ -22,5 +27,7 @@ public class Cart {
 	private Customer customer;
 
 	@ElementCollection
-	private List<ProductDTO> productDtoList = new ArrayList<>();
+	@OneToOne
+	private Map<Product,Integer> productDtoList ;
+
 }
