@@ -6,13 +6,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.masai.exception.OrderException;
-import com.masai.model.Order;
+import com.masai.model.Orders;
 
-public interface OrderDao extends JpaRepository<Order, Integer> {
+public interface OrderDao extends JpaRepository<Orders, Integer> {
 
     @Query("select o from Orders o where o.orderAddress.city= ?1")
-    public List<Order> getOrderByCity(String city) throws OrderException;
+    public List<Orders> getOrderByCity(String city) throws OrderException;
 
     @Query("select o from Orders o where o.customer.mobileNumber=?1")
-    public List<Order> getOrdersByUserId(int userID);
+    public List<Orders> getOrdersByUserId(int userID);
 }
