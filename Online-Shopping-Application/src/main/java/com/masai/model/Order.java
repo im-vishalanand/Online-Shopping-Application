@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.masai.dto.ProductDTO;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
@@ -24,27 +26,27 @@ import lombok.ToString;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class Order {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer orderId;
-	
-	@NotNull
+
+	@NotNull(message = "{Order.date.invalid}")
 	private LocalDate orderDate;
-	
-	@NotNull
-	@NotBlank
-	@NotEmpty
+
+	@NotNull(message = "{Order.status.invalid}")
+	@NotEmpty(message = "{Order.status.invalid}")
+	@NotBlank(message = "{Order.status.invalid}")
 	private String orderStatus;
-	
+
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Customer customer;
-	
+
 	@ElementCollection
-	private List<ProductDTO> productDtoList= new ArrayList<>();
-	
+	private List<ProductDTO> productDtoList = new ArrayList<>();
+
+
 	@OneToOne(cascade = CascadeType.ALL)
 	private Address address;
 	

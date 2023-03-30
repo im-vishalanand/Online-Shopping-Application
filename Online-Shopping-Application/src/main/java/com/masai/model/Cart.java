@@ -1,6 +1,11 @@
 package com.masai.model;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import com.masai.dto.ProductDTO;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.ElementCollection;
@@ -15,8 +20,8 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Cart {
 
 	@Id
@@ -27,7 +32,5 @@ public class Cart {
 	private Customer customer;
 
 	@ElementCollection
-	@OneToOne
-	private Map<Product,Integer> productDtoList ;
-
+	private Map<ProductDTO, Integer> products = new HashMap<>();
 }

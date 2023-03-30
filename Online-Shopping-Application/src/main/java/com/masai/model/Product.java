@@ -11,49 +11,42 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class Product {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer productId;
-	
-	@NotNull
-	@NotBlank
-	@NotEmpty
+
+	@NotBlank(message = "{Product.name.invalid}")
+	@NotEmpty(message = "{Product.name.invalid}")
+	@NotNull(message = "{Product.name.invalid}")
 	private String productName;
-	
+
+	@NotNull(message = "{Product.price.invalid}")
 	private Double price;
-	
-	@NotNull
-	@NotBlank
-	@NotEmpty
+
 	private String colour;
-	
-	@NotNull
-	@NotBlank
-	@NotEmpty
+
 	private String dimension;
-	
-	@NotNull
-	@NotBlank
-	@NotEmpty
+
+	@NotBlank(message = "{Product.specification.invalid}")
+	@NotEmpty(message = "{Product.specification.invalid}")
+	@NotNull(message = "{Product.specification.invalid}")
 	private String specification;
-	
-	@NotNull
-	@NotBlank
-	@NotEmpty
+
+	@NotBlank(message = "{Product.manufacturer.invalid}")
+	@NotEmpty(message = "{Product.manufacturer.invalid}")
+	@NotNull(message = "{Product.manufacturer.invalid}")
 	private String manufacturer;
 	
-	@NotNull
+	@NotNull(message = "{Product.quantity.invalid}")
 	private Integer quantity;
-	
+
 	@Embedded
 	private Category category;
 	
