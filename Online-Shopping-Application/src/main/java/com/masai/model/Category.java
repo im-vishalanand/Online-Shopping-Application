@@ -4,6 +4,7 @@ import jakarta.persistence.Embeddable;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,17 +13,17 @@ import lombok.ToString;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Embeddable
 public class Category {
 
-	@NotNull
-	@NotBlank
-	@NotEmpty
+	@NotNull(message="{Category.id.invalid}")
+	@NotEmpty(message="{Category.id.invalid}")
+	@NotBlank(message="{Category.id.invalid}")
+	@Size(min = 4, max = 6, message = "{Category.id.invalid}")
 	private Integer categoryId;
 	
-	@NotNull
-	@NotBlank
-	@NotEmpty
+	@NotNull(message = "{Category.name.invalid}")
+	@NotEmpty(message = "{Category.name.invalid}")
+	@NotBlank(message = "{Category.name.invalid}")
 	private String categoryName;
 }

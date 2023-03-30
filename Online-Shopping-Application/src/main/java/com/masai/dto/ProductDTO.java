@@ -1,13 +1,12 @@
-package com.masai.model;
+package com.masai.dto;
+
 
 import jakarta.persistence.Embeddable;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @Embeddable
 public class ProductDTO {
 
@@ -24,5 +23,4 @@ public class ProductDTO {
 	private String manufacturer;
 
 	private Integer quantity;
-	
 }
