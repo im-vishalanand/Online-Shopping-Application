@@ -1,6 +1,5 @@
 package com.masai.model;
 
-import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,7 +18,7 @@ import lombok.NoArgsConstructor;
 public class Product {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer productId;
 
 	@NotBlank(message = "{Product.name.invalid}")
@@ -46,8 +45,5 @@ public class Product {
 	
 	@NotNull(message = "{Product.quantity.invalid}")
 	private Integer quantity;
-
-	@Embedded
-	private Category category;
 	
 }

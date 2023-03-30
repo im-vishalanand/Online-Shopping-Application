@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.masai.exception.OrderException;
-import com.masai.model.Order;
+import com.masai.model.Orders;
 import com.masai.repository.OrderDao;
 @Service
 public class OrderServiceImpl implements OrderService{
@@ -15,26 +15,26 @@ public class OrderServiceImpl implements OrderService{
     private OrderDao orderDao;
 
     @Override
-    public Order addOrder(Order order) {
-        Order save = orderDao.save(order);
+    public Orders addOrder(Orders order) {
+        Orders save = orderDao.save(order);
         return save;
     }
 
     @Override
-    public Order updateOrder(Order order)throws OrderException {
-        Optional<Order> byId = orderDao.findById(order.getOrderId());
+    public Orders updateOrder(Orders order)throws OrderException {
+        Optional<Orders> byId = orderDao.findById(order.getOrderId());
 
         if (byId.isPresent()) return orderDao.save(order);
         else throw new OrderException("No Order Found with this Id"+order.getOrderId());
     }
 
     @Override
-    public Order removeOrder(Order order)throws OrderException {
-        Optional<Order> byId = orderDao.findById(order.getOrderId());
+    public Orders removeOrder(Orders order)throws OrderException {
+        Optional<Orders> byId = orderDao.findById(order.getOrderId());
 
         if (byId.isPresent()) {
 
-            Order order1 = byId.get();
+            Orders order1 = byId.get();
             orderDao.delete(order1);
             return order1;
 
@@ -43,17 +43,17 @@ public class OrderServiceImpl implements OrderService{
     }
 
     @Override
-    public Order viewOrder(Order order)throws OrderException {
-        Optional<Order> byId = orderDao.findById(order.getOrderId());
+    public Orders viewOrder(Orders order)throws OrderException {
+        Optional<Orders> byId = orderDao.findById(order.getOrderId());
 
         if (byId.isPresent()) return orderDao.save(order);
         else throw new OrderException("No Order Found with this Id"+order.getOrderId());
     }
 
     @Override
-    public List<Order> viewAllOrdersByLocation(String loc) {
+    public List<Orders> viewAllOrdersByLocation(String loc) {
 
-        List<Order> list= orderDao.getOrderByCity(loc);
+        List<Orders> list= orderDao.getOrderByCity(loc);
 
         if( list.size() < 1) {
             throw new OrderException("No order found with this userId.");
@@ -63,9 +63,9 @@ public class OrderServiceImpl implements OrderService{
     }
 
     @Override
-    public List<Order> viewAllOrdersByUserId(int userid) {
+    public List<Orders> viewAllOrdersByUserId(int userid) {
 
-        List<Order> list = orderDao.getOrdersByUserId(userid);
+        List<Orders> list = orderDao.getOrdersByUserId(userid);
 
         if( list.size() < 1) {
             throw new OrderException("No order found with this userId.");

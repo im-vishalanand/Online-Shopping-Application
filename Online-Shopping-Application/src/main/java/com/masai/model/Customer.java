@@ -31,7 +31,7 @@ import lombok.ToString;
 public class Customer {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer customerId;
 
 	@NotNull(message = "{Customer.name.invalid}")
@@ -65,20 +65,12 @@ public class Customer {
 	@Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}", flags = Pattern.Flag.CASE_INSENSITIVE, message = "{Customer.email.invalid}")
 	private String email;
 
-	@OneToMany(cascade = CascadeType.ALL)
-	private List<Order> listOfOrders = new ArrayList<>();
-
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
+	private List<Orders> listOfOrders = new ArrayList<>();
 	
-	@JsonIgnore
-	public List<Order> getListOfOrders() {
-		return listOfOrders;
-	}
+	@OneToOne(cascade = CascadeType.ALL)
+	private Cart cart;
 
-	
-	@JsonIgnore
-	public void setListOfOrders(List<Order> listOfOrders) {
-		this.listOfOrders = listOfOrders;
-	}
 
 	
 }

@@ -1,6 +1,11 @@
 package com.masai.model;
 
+import java.util.List;
+
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Embeddable;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -8,7 +13,6 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Data
 @NoArgsConstructor
@@ -26,4 +30,7 @@ public class Category {
 	@NotEmpty(message = "{Category.name.invalid}")
 	@NotBlank(message = "{Category.name.invalid}")
 	private String categoryName;
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<Product> productList;
 }

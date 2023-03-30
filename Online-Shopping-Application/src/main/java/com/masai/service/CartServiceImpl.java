@@ -18,50 +18,54 @@ public class CartServiceImpl implements CartService{
 
 	    @Override
 	    public Cart addProductToCart(Cart cart, Product p, int quantity) throws CartException {
-	        Optional<Cart> byId = cartDao.findById(cart.getCartId());
-	        if (byId.isPresent()) {
-	            Cart cart1 = byId.get();
-	            cart1.getProductDtoList().put(p,quantity);
-	            cartDao.save(cart1);
-	            return cart1;
-	        }
-	        else throw new CartException("No Cart Found with this Id"+cart.getCartId());
+			return null;
+//	        Optional<Cart> byId = cartDao.findById(cart.getCartId());
+//	        if (byId.isPresent()) {
+//	            Cart cart1 = byId.get();
+//	            cart1.getProductDtoList().put(p,quantity);
+//	            cartDao.save(cart1);
+//	            return cart1;
+//	        }
+//	        else throw new CartException("No Cart Found with this Id"+cart.getCartId());
 	    }
 
 	    @Override
 	    public Cart removeProductFromCart(Cart cart, Product p) throws CartException {
-	        Optional<Cart> byId = cartDao.findById(cart.getCartId());
-	        if (byId.isPresent()) {
-	            Cart cart1 = byId.get();
-	            cart1.getProductDtoList().remove(p);
-	            cartDao.save(cart1);
-	            return cart1;
-	        }
-	        else throw new CartException("No Cart Found with this Id"+cart.getCartId());
+	    	return null;
+//	        Optional<Cart> byId = cartDao.findById(cart.getCartId());
+//	        if (byId.isPresent()) {
+//	            Cart cart1 = byId.get();
+//	            cart1.getProductDtoList().remove(p);
+//	            cartDao.save(cart1);
+//	            return cart1;
+//	        }
+//	        else throw new CartException("No Cart Found with this Id"+cart.getCartId());
 	    }
 
 	    @Override
 	    public Cart updateProductQuantity(Cart cart, Product p, int quantity) throws CartException {
-	        Optional<Cart> byId = cartDao.findById(cart.getCartId());
-	        if (byId.isPresent()) {
-	            Cart cart1 = byId.get();
-	            cart1.getProductDtoList().replace(p,quantity);
-	            cartDao.save(cart1);
-	            return cart1;
-	        }
-	        else throw new CartException("No Cart Found with this Id"+cart.getCartId());
+	    	return null;
+//	        Optional<Cart> byId = cartDao.findById(cart.getCartId());
+//	        if (byId.isPresent()) {
+//	            Cart cart1 = byId.get();
+//	            cart1.getProductDtoList().replace(p,quantity);
+//	            cartDao.save(cart1);
+//	            return cart1;
+//	        }
+//	        else throw new CartException("No Cart Found with this Id"+cart.getCartId());
 	    }
 
 	    @Override
 	    public Cart removeAllProducts(Cart cart) throws CartException {
-	        Optional<Cart> byId = cartDao.findById(cart.getCartId());
-	        if (byId.isPresent()) {
-	            Cart cart1 = byId.get();
-	            cart1.getProductDtoList().clear();
-	            cartDao.save(cart1);
-	            return cart1;
-	        }
-	        else throw new CartException("No Cart Found with this Id"+cart.getCartId());
+	    	return null;
+//	        Optional<Cart> byId = cartDao.findById(cart.getCartId());
+//	        if (byId.isPresent()) {
+//	            Cart cart1 = byId.get();
+//	            cart1.getProductDtoList().clear();
+//	            cartDao.save(cart1);
+//	            return cart1;
+//	        }
+//	        else throw new CartException("No Cart Found with this Id"+cart.getCartId());
 	    }
 
 	    @Override

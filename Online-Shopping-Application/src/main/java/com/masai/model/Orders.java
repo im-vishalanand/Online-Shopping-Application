@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.masai.dto.ProductDTO;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.ElementCollection;
@@ -13,6 +13,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
@@ -26,10 +27,10 @@ import lombok.ToString;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Order {
+public class Orders {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer orderId;
 
 	@NotNull(message = "{Order.date.invalid}")
@@ -40,11 +41,12 @@ public class Order {
 	@NotBlank(message = "{Order.status.invalid}")
 	private String orderStatus;
 
+	@JsonIgnore
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Customer customer;
 
-	@ElementCollection
-	private List<ProductDTO> productDtoList = new ArrayList<>();
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<Product> productList = new ArrayList<>();
 
 
 	@OneToOne(cascade = CascadeType.ALL)
