@@ -23,7 +23,7 @@ public class CustomerController {
 	@PostMapping
 	public ResponseEntity<Customer> addCustomerHandler(@Valid @RequestBody Customer customer)  {
 		Customer savedcustomer = customerService.addCustomer(customer);
-		return new ResponseEntity<>(savedcustomer, HttpStatus.OK);
+		return new ResponseEntity<>(savedcustomer, HttpStatus.CREATED);
 	}
 	
 	
