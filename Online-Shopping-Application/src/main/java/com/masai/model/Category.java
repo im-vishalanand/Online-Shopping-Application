@@ -31,6 +31,6 @@ public class Category {
 	@NotBlank(message = "{Category.name.invalid}")
 	private String categoryName;
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
 	private List<Product> productList;
 }

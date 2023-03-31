@@ -1,9 +1,11 @@
 package com.masai.model;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -45,5 +47,8 @@ public class Product {
 	
 	@NotNull(message = "{Product.quantity.invalid}")
 	private Integer quantity;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Category category;
 	
 }
