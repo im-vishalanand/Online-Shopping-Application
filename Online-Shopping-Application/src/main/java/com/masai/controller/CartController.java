@@ -43,7 +43,17 @@ public class CartController {
         Cart updateProduct = cartService.updateProductQuantity(cart, product, quantity);
         return new ResponseEntity<>(updateProduct,HttpStatus.ACCEPTED);
     }
+    
+    
 
+    @DeleteMapping("/removeAllProduct")
+    public ResponseEntity<Cart> removeAllProductsHandler(@RequestBody Cart cart){
+        Cart removeAllProduct = cartService.removeAllProducts(cart);
+        return new ResponseEntity<>(removeAllProduct,HttpStatus.ACCEPTED);
+    }
+
+    
+    
 
 
 }
