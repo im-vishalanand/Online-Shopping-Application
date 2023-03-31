@@ -6,7 +6,7 @@ import com.masai.exception.CustomerException;
 import com.masai.model.Customer;
 
 public interface CustomerService {
-	public Customer addCoustomer(Customer coustomer);
+	public Customer addCustomer(Customer coustomer);
 	
 	public Customer updateCoustomer(Customer customer, String key) throws CustomerException,LoginException;
 	

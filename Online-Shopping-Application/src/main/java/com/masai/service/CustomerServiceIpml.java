@@ -22,9 +22,12 @@ public class CustomerServiceIpml implements CustomerService{
 	
 	
 	@Override
-	public Customer addCoustomer(Customer coustomer) {
+	public Customer addCustomer(Customer coustomer) {
 		
-		
+		Customer existingCustomer = dao.findByEmail(coustomer.getEmail());
+		if (existingCustomer != null)
+			throw new CustomerException("Customer Already Registered with Email...!");
+
 		Customer cu = dao.save(coustomer);
 		return cu;
 	}
