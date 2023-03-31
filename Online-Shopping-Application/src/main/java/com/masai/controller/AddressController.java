@@ -27,8 +27,7 @@ public class AddressController {
 	private AddressService addressService;
 	
 	@PostMapping("/addresses")
-//	public ResponseEntity<Address> addAddressHandler(@Valid @RequestBody Address add) {
-		public ResponseEntity<Address> addAddressHandler( @RequestBody Address add) {
+	public ResponseEntity<Address> addAddressHandler(@Valid @RequestBody Address add) {
 		Address ad = addressService.addAddress(add);
 		return new ResponseEntity<Address>(ad, HttpStatus.OK);
 	}
