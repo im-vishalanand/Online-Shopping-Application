@@ -53,7 +53,7 @@ public class Customer {
 	@NotNull(message = "{Customer.password.invalid}")
 	@NotEmpty(message = "{Customer.password.invalid}")
 	@NotBlank(message = "{Customer.password.invalid}")
-//	@Pattern(regexp = "^(?=.*\\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\\w\\d\\s:])([^\\s]){6,12}$", message = "{Customer.password.invalid}")
+	@Pattern(regexp = "^(?=.*\\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\\w\\d\\s:])([^\\s]){6,12}$", message = "{Customer.password.invalid}")
 	private String password;
 
 	@OneToOne(cascade = CascadeType.ALL)
@@ -65,9 +65,11 @@ public class Customer {
 	@Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}", flags = Pattern.Flag.CASE_INSENSITIVE, message = "{Customer.email.invalid}")
 	private String email;
 
+	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
 	private List<Orders> listOfOrders = new ArrayList<>();
 	
+	@JsonIgnore
 	@OneToOne(cascade = CascadeType.ALL)
 	private Cart cart;
 
