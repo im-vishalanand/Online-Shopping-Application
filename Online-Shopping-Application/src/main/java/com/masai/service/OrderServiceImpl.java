@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import com.masai.exception.OrderException;
 import com.masai.model.Orders;
 import com.masai.repository.OrderDao;
+
+import jakarta.persistence.criteria.Order;
 @Service
 public class OrderServiceImpl implements OrderService{
 	@Autowired
@@ -16,7 +18,7 @@ public class OrderServiceImpl implements OrderService{
 
     @Override
     public Orders addOrder(Orders order) {
-        Orders save = orderDao.save(order);
+    	Orders save = orderDao.save(order);
         return save;
     }
 
@@ -34,7 +36,7 @@ public class OrderServiceImpl implements OrderService{
 
         if (byId.isPresent()) {
 
-            Orders order1 = byId.get();
+        	Orders order1 = byId.get();
             orderDao.delete(order1);
             return order1;
 

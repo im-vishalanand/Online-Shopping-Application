@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import com.masai.exception.OrderException;
 import com.masai.model.Orders;
 
+import jakarta.persistence.criteria.Order;
+
 public interface OrderDao extends JpaRepository<Orders, Integer> {
 
     @Query("select o from Orders o where o.orderAddress.city= ?1")

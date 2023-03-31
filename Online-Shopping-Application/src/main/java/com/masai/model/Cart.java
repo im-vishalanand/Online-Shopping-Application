@@ -1,7 +1,6 @@
 package com.masai.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
@@ -23,5 +22,5 @@ public class Cart {
 	private Integer cartId;
 
 	@ElementCollection
-	private List<Product> productList= new ArrayList<>();
+	private Map<Product,Integer> productList;
 }
