@@ -20,37 +20,37 @@ import com.masai.service.AddressService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/addresses")
+//@RequestMapping("/addresses")
 public class AddressController {
 	
 	@Autowired
 	private AddressService addressService;
 	
-	@PostMapping
+	@PostMapping("/addresses")
 	public ResponseEntity<Address> addAddressHandler(@Valid @RequestBody Address add) {
 		Address ad = addressService.addAddress(add);
 		return new ResponseEntity<Address>(ad, HttpStatus.OK);
 	}
 
-	@PutMapping
+	@PutMapping("/addresses")
 	public ResponseEntity<Address> updateAddressHandler(@RequestBody Address add) {
 		Address ad = addressService.updateAddress(add);
 		return new ResponseEntity<Address>(ad, HttpStatus.ACCEPTED);
 	}
 	
-	@DeleteMapping("/{addressId}")
+	@DeleteMapping("/addresses/{addressId}")
     public ResponseEntity<Address> deleteAddressHandler(@PathVariable("addressId") Integer addId) {
         Address ad = addressService.removeAddress(addId);
         return new ResponseEntity<Address>(ad, HttpStatus.OK);
     }
     
-	@GetMapping
+	@GetMapping("/addresses")
     public ResponseEntity<List<Address>> getAllAddressHandler() {
         List<Address> allAddress = addressService.viewAllAddress();
         return new ResponseEntity<List<Address>>(allAddress, HttpStatus.OK);
     }
 
-    @GetMapping("/{addressId}")
+    @GetMapping("/addresses/{addressId}")
     public ResponseEntity<Address> getAddressHandler(@PathVariable("addressId") Integer addressId) {
 
         Address existingAddress = addressService.viewAddress(addressId);

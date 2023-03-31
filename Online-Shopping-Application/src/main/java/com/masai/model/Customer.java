@@ -65,9 +65,11 @@ public class Customer {
 	@Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}", flags = Pattern.Flag.CASE_INSENSITIVE, message = "{Customer.email.invalid}")
 	private String email;
 
+	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
 	private List<Orders> listOfOrders = new ArrayList<>();
 	
+	@JsonIgnore
 	@OneToOne(cascade = CascadeType.ALL)
 	private Cart cart;
 

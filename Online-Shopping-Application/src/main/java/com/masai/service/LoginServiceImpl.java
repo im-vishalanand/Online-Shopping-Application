@@ -34,63 +34,64 @@ public class LoginServiceImpl implements LoginService{
 	
 	@Override
 	public String login(LoginDTO dto) throws LoginException {
-		
-		// admin and Customer check
-		
-		Admin a = admindao.findByUsername(dto.getUsername());
-		
-		Customer c = custdao.findByUserName(dto.getUsername());
-		
-		// admin loging check
-		
-		if(c == null && a!=null) {
-		
-		Optional<CurrentSession> existAdmin = cudao.findById(a.getAdminId());
-		
-		if(existAdmin.isPresent()) throw new LoginException("already loggedIn");
-		
-		if(a.getPassword().equals(dto.getPassword())) {
-			String key = "6";
-			CurrentSession newUser = new CurrentSession();
-			
-		newUser.setLocalDateTime(LocalDateTime.now());
-		newUser.setType(true);
-		newUser.setUuid(key);
-		newUser.setUserId(a.getAdminId());
-		cudao.save(newUser);
-		return newUser.toString();
-		}
-		else
-			throw new LoginException("Please enter a vaild password");
-	}
-		
-		//Customer login check
-		
-		else if(a== null && c!=null ) {
-			Optional<CurrentSession> cu = cudao.findById(c.getCustomerId());
-			if(cu.isPresent()) {
-				throw new LoginException("Already loggedIn");
-			}
-			
-			if(c.getPassword().equals(dto.getPassword())) {
-				String key = "6";
-				CurrentSession newUser = new CurrentSession();
-				newUser.setLocalDateTime(LocalDateTime.now());
-				newUser.setType(true);
-				newUser.setUuid(key);
-				newUser.setUserId(c.getCustomerId());
-				cudao.save(newUser);
-				return newUser.toString();
-				
-			}
-			else
-				throw new LoginException("Please enter a vaild password");
-		}
-		else {
-			
-				throw new LoginException("Please enter a vaild username");
-		}
-		
+//		
+//		// admin and Customer check
+//		
+//		Admin a = admindao.findByUsername(dto.getUsername());
+//		
+//		Customer c = custdao.findByUserName(dto.getUsername());
+//		
+//		// admin loging check
+//		
+//		if(c == null && a!=null) {
+//		
+//		Optional<CurrentSession> existAdmin = cudao.findById(a.getAdminId());
+//		
+//		if(existAdmin.isPresent()) throw new LoginException("already loggedIn");
+//		
+//		if(a.getPassword().equals(dto.getPassword())) {
+//			String key = "6";
+//			CurrentSession newUser = new CurrentSession();
+//			
+//		newUser.setLocalDateTime(LocalDateTime.now());
+//		newUser.setType(true);
+//		newUser.setUuid(key);
+//		newUser.setUserId(a.getAdminId());
+//		cudao.save(newUser);
+//		return newUser.toString();
+//		}
+//		else
+//			throw new LoginException("Please enter a vaild password");
+//	}
+//		
+//		//Customer login check
+//		
+//		else if(a== null && c!=null ) {
+//			Optional<CurrentSession> cu = cudao.findById(c.getCustomerId());
+//			if(cu.isPresent()) {
+//				throw new LoginException("Already loggedIn");
+//			}
+//			
+//			if(c.getPassword().equals(dto.getPassword())) {
+//				String key = "6";
+//				CurrentSession newUser = new CurrentSession();
+//				newUser.setLocalDateTime(LocalDateTime.now());
+//				newUser.setType(true);
+//				newUser.setUuid(key);
+//				newUser.setUserId(c.getCustomerId());
+//				cudao.save(newUser);
+//				return newUser.toString();
+//				
+//			}
+//			else
+//				throw new LoginException("Please enter a vaild password");
+//		}
+//		else {
+//			
+//				throw new LoginException("Please enter a vaild username");
+//		}
+//		
+		return null;
 	}
 
 	@Override

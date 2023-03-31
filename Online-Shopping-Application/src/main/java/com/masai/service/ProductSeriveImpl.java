@@ -56,11 +56,12 @@ public class ProductSeriveImpl implements ProductService{
 
 	@Override
 	public List<Product> viewProductByCategory(String cName) throws ProductException {
-		List<Product> products = pdao.viewByCategoryName(cName);
-		if(products.size() > 0) {
-			return products;
-		}
-		throw new ProductException("Product is not available with category name "+cName);
+//		List<Product> products = pdao.viewByCategoryName(cName);
+//		if(products.size() > 0) {
+//			return products;
+//		}
+//		throw new ProductException("Product is not available with category name "+cName);
+	return null;
 	}
 
 	@Override

@@ -21,13 +21,27 @@ public class CustomerController {
 	private CustomerService customerService;
 	
 	@PostMapping
-	public ResponseEntity<Customer> addCustomerHandler(@Valid @RequestBody Customer customer)  {
+	public ResponseEntity<Customer> addCustomerHandler( @RequestBody Customer customer)  {
 		Customer savedcustomer = customerService.addCustomer(customer);
 		return new ResponseEntity<>(savedcustomer, HttpStatus.CREATED);
 	}
 	
 	
-	
+//	{
+//	    "firstName":"firstName",
+//	    "lastName":"lastName",
+//	    "mobileNumber":"121231231233",
+//	    "password":"password12",
+//	    "address":{
+//	        "streetName":"streetName",
+//	        "buildingName":"buildingName",
+//	        "city":"city",
+//	        "state":"state",
+//	        "pincode":"pincode",
+//	        "country":"country"
+//	    },
+//	    "email":"email@mail.com"
+//	}
 	
 	
 	

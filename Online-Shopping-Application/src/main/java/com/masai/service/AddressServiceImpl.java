@@ -35,6 +35,7 @@ public class AddressServiceImpl implements AddressService{
 	@Override
 	public Address removeAddress(Integer addId) throws AddressException {
 		Address addr = adao.findById(addId).orElseThrow(()-> new AddressException("Address not found with address id "+addId));
+		adao.delete(addr);
 		return addr;
 		
 	}
