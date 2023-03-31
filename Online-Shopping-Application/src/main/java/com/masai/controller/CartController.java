@@ -3,6 +3,7 @@ package com.masai.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +27,12 @@ public class CartController {
     public ResponseEntity<Cart> addProductToCartHandler(@RequestBody Cart cart,@RequestBody Product product,@RequestParam("quantity") int quantity){
         Cart addProduct = cartService.addProductToCart(cart, product, quantity);
         return new ResponseEntity<>(addProduct,HttpStatus.CREATED);
+    }
+
+    @DeleteMapping
+    public ResponseEntity<Cart> removeProductFromCartHandler(@RequestBody Cart cart,@RequestBody Product product){
+        Cart removeProduct = cartService.removeProductFromCart(cart, product);
+        return new ResponseEntity<>(removeProduct,HttpStatus.OK);
     }
 
 
