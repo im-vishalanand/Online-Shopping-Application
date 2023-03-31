@@ -50,4 +50,12 @@ public class AddressController {
         return new ResponseEntity<List<Address>>(allAddress, HttpStatus.OK);
     }
 
+    @GetMapping("/{addressId}")
+    public ResponseEntity<Address> getAddressHandler(@PathVariable("addressId") Integer addressId) {
+
+        Address existingAddress = addressService.viewAddress(addressId);
+
+        return new ResponseEntity<Address>(existingAddress, HttpStatus.OK);
+
+    }
 }
