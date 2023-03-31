@@ -53,7 +53,7 @@ public class Customer {
 	@NotNull(message = "{Customer.password.invalid}")
 	@NotEmpty(message = "{Customer.password.invalid}")
 	@NotBlank(message = "{Customer.password.invalid}")
-	@Pattern(regexp = "^(?=.*\\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\\w\\d\\s:])([^\\s]){6,12}$", message = "{Customer.password.invalid}")
+//	@Pattern(regexp = "^(?=.*\\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\\w\\d\\s:])([^\\s]){6,12}$", message = "{Customer.password.invalid}")
 	private String password;
 
 	@OneToOne(cascade = CascadeType.ALL)

@@ -33,13 +33,13 @@ public class Orders {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer orderId;
 
-	@NotNull(message = "{Order.date.invalid}")
-	private LocalDate orderDate;
-
-	@NotNull(message = "{Order.status.invalid}")
-	@NotEmpty(message = "{Order.status.invalid}")
-	@NotBlank(message = "{Order.status.invalid}")
-	private String orderStatus;
+//	@NotNull(message = "{Order.date.invalid}")
+//	private LocalDate orderDate;
+//
+//	@NotNull(message = "{Order.status.invalid}")
+//	@NotEmpty(message = "{Order.status.invalid}")
+//	@NotBlank(message = "{Order.status.invalid}")
+//	private String orderStatus;
 
 	@JsonIgnore
 	@ManyToOne(cascade = CascadeType.ALL)
