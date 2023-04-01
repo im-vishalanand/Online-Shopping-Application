@@ -9,13 +9,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.masai.exception.CustomerException;
 import com.masai.model.Customer;
 import com.masai.service.CustomerService;
-
-import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/customers")
@@ -40,7 +39,7 @@ public class CustomerController {
 	
 	
 	
-	public ResponseEntity<Customer> veiwCustomerByIdHandler(Integer customerId, String key) throws CustomerException, LoginException  {
+	public ResponseEntity<Customer> veiwCustomerByIdHandler(@RequestParam Integer customerId, String key) throws CustomerException, LoginException  {
 
 	
 	
