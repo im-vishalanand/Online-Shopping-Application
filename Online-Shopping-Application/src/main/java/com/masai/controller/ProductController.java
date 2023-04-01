@@ -41,7 +41,7 @@ public class ProductController {
 
 		List<Product> products = productService.viewAllProduct();
 
-		
+		return new ResponseEntity<List<Product>>(products, HttpStatus.OK);
 	}
 	
 	
