@@ -21,7 +21,7 @@ public class ProductController {
 	
 	public ResponseEntity<Product> addProductHandler(@Valid @RequestBody Product product) throws ProductException{
 		
-		
+		Product addProd = prodServ.addProduct(product);
 		
 		
 		
