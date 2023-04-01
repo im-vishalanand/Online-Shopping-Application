@@ -80,6 +80,17 @@ public class orderController {
 	 
 	 
 	 
+	 @GetMapping("/{userid}")
+	 public ResponseEntity<List<Orders>> viewAllOrdersByUserIdHandler(@RequestParam int userid){
+		 
+		 List<Orders> listOfOrders = orderService.viewAllOrdersByUserId(userid);
+		 
+		 return new ResponseEntity<>(listOfOrders, HttpStatus.OK);
+		 
+	 }
+	 
+	 
+	 
 	 
 	 
 	 
