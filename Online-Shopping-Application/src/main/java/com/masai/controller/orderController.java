@@ -60,6 +60,8 @@ public class orderController {
 		 Orders viewOrder = orderService.viewOrder(order);
 		 
 		 
+		 return new ResponseEntity<>(viewOrder, HttpStatus.OK);
+		 
 	 }
 	 
 	 
