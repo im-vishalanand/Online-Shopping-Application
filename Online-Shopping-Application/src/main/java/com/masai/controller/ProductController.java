@@ -57,7 +57,7 @@ public class ProductController {
 	}
 	
 	
-	
+	@GetMapping("/{prodId}")
 	public ResponseEntity<Product> viewProductHandler(@PathVariable("prodId") Integer prodId) {
 
 		Product product = productService.viewProduct(prodId);
