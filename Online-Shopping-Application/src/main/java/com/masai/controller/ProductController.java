@@ -75,7 +75,7 @@ public class ProductController {
 		
 	}
 	
-	
+	@DeleteMapping
 	public ResponseEntity<Product> deleteProductHandler(@PathVariable("productId") Integer productId) {
 		
 		Product product = productService.removeProduct(productId);
