@@ -57,7 +57,9 @@ public class ProductController {
 	
 	
 	
-	
+	public ResponseEntity<Product> viewProductHandler(@PathVariable("prodId") Integer prodId) {
+
+	}
 	
 	
 	
