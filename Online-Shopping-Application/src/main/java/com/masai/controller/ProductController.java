@@ -47,7 +47,10 @@ public class ProductController {
 	
 	
 	
-	
+	public ResponseEntity<Product> updateProductHandler(@RequestBody Product product) {
+		
+		
+	}
 	
 	
 	
