@@ -44,7 +44,12 @@ public class orderController {
 	 
 	 
 	 
-	 
+	 public ResponseEntity<Orders> removeOrderHandler(Orders order){
+		 
+		 
+		 
+		 
+	 }
 	 
 	 
 	 
