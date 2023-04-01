@@ -71,7 +71,9 @@ public class orderController {
 	 
 	 public ResponseEntity<List<Orders>> viewAllOrdersByLocationHandler(String loc){
 
-	 
+		 List<Orders> listOfOrders = orderService.viewAllOrdersByLocation(loc);
+		 
+		 return new ResponseEntity<>(listOfOrders, HttpStatus.OK);
 	 
 	 }
 	 
