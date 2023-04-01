@@ -79,6 +79,8 @@ public class ProductController {
 	public ResponseEntity<Product> deleteProductHandler(@PathVariable("productId") Integer productId) {
 		
 		Product product = productService.removeProduct(productId);
+	
+		return new ResponseEntity<Product>(product, HttpStatus.OK);
 	}
 	
 	
