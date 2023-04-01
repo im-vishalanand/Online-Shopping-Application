@@ -28,7 +28,7 @@ public class orderController {
 		 
 	 }
 	
-	 public ResponseEntity<Order> updateOrderHandler(@RequestBody Order order){
+	 public ResponseEntity<Orders> updateOrderHandler(@RequestBody Orders order){
 
 	 
 	 }
