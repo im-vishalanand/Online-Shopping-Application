@@ -71,7 +71,8 @@ public class ProductController {
 
 		List<Product> prodCateg = productService.viewProductByCategory(categoryName);
 
-	
+		return new ResponseEntity<List<Product>>(prodCateg, HttpStatus.OK);
+		
 	}
 	
 	
