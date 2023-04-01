@@ -17,7 +17,7 @@ import com.masai.model.Product;
 import com.masai.service.CartService;
 
 @RestController
-@RequestMapping("/carts")
+@RequestMapping("/cart")
 public class CartController {
 
 
@@ -25,19 +25,19 @@ public class CartController {
     private CartService cartService;
 
     
-    @PostMapping("/{quantity}")
+    @PostMapping("/addProductToCart")
     public ResponseEntity<Cart> addProductToCartHandler(@RequestBody Cart cart,@RequestBody Product product,@RequestParam("quantity") int quantity){
         Cart addProduct = cartService.addProductToCart(cart, product, quantity);
         return new ResponseEntity<>(addProduct,HttpStatus.CREATED);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/removeProduct")
     public ResponseEntity<Cart> removeProductFromCartHandler(@RequestBody Cart cart,@RequestBody Product product){
         Cart removeProduct = cartService.removeProductFromCart(cart, product);
         return new ResponseEntity<>(removeProduct,HttpStatus.ACCEPTED);
     }
 
-    @PatchMapping("/{quantity}")
+    @PatchMapping("/updateProductQuantity")
     public ResponseEntity<Cart> updateProductQuantityHandler(@RequestBody Cart cart,@RequestBody Product product,@RequestParam("quantity") int quantity){
         Cart updateProduct = cartService.updateProductQuantity(cart, product, quantity);
         return new ResponseEntity<>(updateProduct,HttpStatus.ACCEPTED);
@@ -52,7 +52,7 @@ public class CartController {
     }
 
 
-    @GetMapping
+    @GetMapping("/viewAllProducts")
     public ResponseEntity<Cart> viewAllProductsHandler(@RequestBody Cart cart){
         Cart viewAllProducts = cartService.viewAllProducts(cart);
         return new ResponseEntity<>(viewAllProducts,HttpStatus.OK);

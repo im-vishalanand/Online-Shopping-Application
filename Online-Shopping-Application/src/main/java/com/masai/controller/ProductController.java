@@ -31,7 +31,7 @@ public class ProductController {
 	
 	
 	
-	@PostMapping
+	@PostMapping("/addProduct")
 	public ResponseEntity<Product> addProductHandler(@Valid @RequestBody Product product) throws ProductException{
 		
 		Product addProd = productService.addProduct(product);
@@ -41,7 +41,7 @@ public class ProductController {
 	}
 	
 	
-	@GetMapping
+	@GetMapping("/viewAllProducts")
 	public ResponseEntity<List<Product>> viewAllProductsHandler()  throws ProductException {
 
 		List<Product> products = productService.viewAllProduct();
@@ -50,7 +50,7 @@ public class ProductController {
 	}
 	
 	
-	@PutMapping
+	@PutMapping("/updateProduct")
 	public ResponseEntity<Product> updateProductHandler(@Valid @RequestBody Product product)  throws ProductException {
 		
 		Product prod = productService.updateProduct(product);
@@ -59,8 +59,8 @@ public class ProductController {
 	}
 	
 	
-	@GetMapping("/{prodId}")
-	public ResponseEntity<Product> viewProductHandler(@Valid @PathVariable("prodId") Integer prodId) throws ProductException {
+	@GetMapping("/viewProduct")
+	public ResponseEntity<Product> viewProductHandler(@Valid @RequestParam("prodId") Integer prodId) throws ProductException {
 
 		Product product = productService.viewProduct(prodId);
 		
@@ -68,8 +68,8 @@ public class ProductController {
 	}
 	
 	
-	@GetMapping("/category/{categoryName}")
-	public ResponseEntity<List<Product>> viewProductByCategoryHandler(@Valid @PathVariable("categoryName") String categoryName) {
+	@GetMapping("/viewProductByCategory")
+	public ResponseEntity<List<Product>> viewProductByCategoryHandler(@Valid @RequestParam("categoryName") String categoryName) {
 
 		List<Product> prodCateg = productService.viewProductByCategory(categoryName);
 
@@ -77,8 +77,8 @@ public class ProductController {
 		
 	}
 	
-	@DeleteMapping("/{productId}")
-	public ResponseEntity<Product> deleteProductHandler(@PathVariable("productId") Integer productId) {
+	@DeleteMapping("/deleteProduct")
+	public ResponseEntity<Product> deleteProductHandler(@Valid @RequestParam("productId") Integer productId) {
 		
 		Product product = productService.removeProduct(productId);
 	

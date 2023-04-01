@@ -27,7 +27,7 @@ public class orderController {
 	
 	
 	
-	@PostMapping
+	@PostMapping("/addOrder")
 	 public ResponseEntity<Orders> addOrderHandler(@RequestBody Orders order){
 		 
 		 Orders addedOrder = orderService.addOrder(order);
@@ -38,7 +38,7 @@ public class orderController {
 	
 	
 	
-	@PutMapping
+	@PutMapping("/updateOrder")
 	 public ResponseEntity<Orders> updateOrderHandler(@RequestBody Orders order){
 
 		 Orders updateOrder = orderService.updateOrder(order);
@@ -49,27 +49,27 @@ public class orderController {
 	 
 	 
 	 
-	 @DeleteMapping
-	 public ResponseEntity<Orders> removeOrderHandler(@RequestBody Orders order){
+	 @DeleteMapping("/removeOrder")
+	 public ResponseEntity<Orders> removeOrderHandler(@RequestParam Integer orderId){
 		 
-		 Orders orderRemove = orderService.removeOrder(order);
+		 Orders orderRemove = orderService.removeOrder(orderId);
 
 		 return new ResponseEntity<>(orderRemove, HttpStatus.ACCEPTED);		 
 		 
 	 }
 	 
 	 
-	 @GetMapping
-	 public ResponseEntity<Orders> viewOrderHandler(@RequestBody Orders order){
+	 @GetMapping("/viewAllOrder")
+	 public ResponseEntity<List<Orders>> viewAllOrderHandler(){
 		 
-		 Orders viewOrder = orderService.viewOrder(order);
+		 List<Orders> orderList= orderService.viewAllOrder();
 		 
-		 return new ResponseEntity<>(viewOrder, HttpStatus.OK);
+		 return new ResponseEntity<List<Orders>>(orderList, HttpStatus.OK);
 		 
 	 }
 	 
 	 
-	 @GetMapping("/{loc}")
+	 @GetMapping("/viewAllOrdersByLocation")
 	 public ResponseEntity<List<Orders>> viewAllOrdersByLocationHandler(@RequestParam String loc){
 
 		 List<Orders> listOfOrders = orderService.viewAllOrdersByLocation(loc);
@@ -80,7 +80,7 @@ public class orderController {
 	 
 	 
 	 
-	 @GetMapping("/{userid}")
+	 @GetMapping("/viewAllOrdersByUserId")
 	 public ResponseEntity<List<Orders>> viewAllOrdersByUserIdHandler(@RequestParam int userid){
 		 
 		 List<Orders> listOfOrders = orderService.viewAllOrdersByUserId(userid);

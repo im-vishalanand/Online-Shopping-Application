@@ -10,9 +10,9 @@ public interface OrderService {
 
     public Orders updateOrder(Orders order) throws OrderException;
 
-    public Orders removeOrder(Orders order) throws OrderException;
+    public Orders removeOrder(Integer orderId) throws OrderException;
 
-    public Orders viewOrder(Orders order) throws OrderException;
+    public List<Orders> viewAllOrder() throws OrderException;
 
     public List<Orders> viewAllOrdersByLocation(String loc);
 
