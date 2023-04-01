@@ -11,6 +11,7 @@
 - MAVEN
 - J.D.B.C
 - MYSQL
+- JPQL
 - POSTMAN
 
 ## Dependencies
