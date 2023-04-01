@@ -39,7 +39,7 @@ public class ProductController {
 	
 	
 	@GetMapping
-	public ResponseEntity<List<Product>> viewAllProductsHandler() {
+	public ResponseEntity<List<Product>> viewAllProductsHandler()  throws ProductException {
 
 		List<Product> products = productService.viewAllProduct();
 
@@ -48,7 +48,7 @@ public class ProductController {
 	
 	
 	@PutMapping
-	public ResponseEntity<Product> updateProductHandler(@RequestBody Product product) {
+	public ResponseEntity<Product> updateProductHandler(@RequestBody Product product)  throws ProductException {
 		
 		Product prod = productService.updateProduct(product);
 	
