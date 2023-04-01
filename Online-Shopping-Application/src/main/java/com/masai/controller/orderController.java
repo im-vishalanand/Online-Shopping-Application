@@ -46,6 +46,8 @@ public class orderController {
 	 
 	 public ResponseEntity<Orders> removeOrderHandler(Orders order){
 		 
+		 Orders orderRemove = orderService.removeOrder(order);
+
 		 
 		 
 		 
