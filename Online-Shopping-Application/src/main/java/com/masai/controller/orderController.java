@@ -54,7 +54,7 @@ public class orderController {
 	 }
 	 
 	 
-	 
+	 @GetMapping
 	 public ResponseEntity<Orders> viewOrderHandler(Orders order){
 		 
 		 Orders viewOrder = orderService.viewOrder(order);
