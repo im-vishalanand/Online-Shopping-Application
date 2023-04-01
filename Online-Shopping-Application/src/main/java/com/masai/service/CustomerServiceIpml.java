@@ -1,5 +1,6 @@
 package com.masai.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.security.auth.login.LoginException;
@@ -34,8 +35,9 @@ public class CustomerServiceIpml implements CustomerService{
 
 
 	@Override
-	public Customer updateCoustomer(Customer customer, String key) throws CustomerException, LoginException {
-		CurrentSession cu = cuu.findByUuid(key);
+	public Customer updateCoustomer(Customer customer) throws CustomerException, LoginException {
+//		CurrentSession cu = cuu.findByUuid(key);
+		Optional<Customer> cu= dao.findById(customer.getCustomerId());
 		if(cu == null) throw new LoginException("Please Login first !");
 		
 		Optional<Customer> curentUser = dao.findById(customer.getCustomerId());
@@ -46,29 +48,62 @@ public class CustomerServiceIpml implements CustomerService{
 
 
 	@Override
-	public Customer removeCustomer(Customer customer, String key) throws CustomerException, LoginException {
-		CurrentSession cu = cuu.findByUuid(key);
-		if(cu == null) throw new LoginException("Please Login first !");
+	public Customer removeCustomer(Integer customerId) throws CustomerException, LoginException {
+		Optional<Customer> opt= dao.findById(customerId);
 		
-		Optional<Customer> curentUser = dao.findById(customer.getCustomerId());
-		if(curentUser.isEmpty()) throw new  CustomerException("Customer does not exist");
-		
-		 dao.deleteById(customer.getCustomerId());
-		 
-		 return curentUser.get();
+		if(opt.isPresent()) {
+						
+			Customer cust=opt.get();
+			
+			dao.delete(cust);
+			
+			return cust;
+			
+		}
+		else {
+			
+			throw new CustomerException("Customer not present for given customer Id: "+customerId);
+			
+		}
 	}
 
 
 	@Override
-	public Customer veiwCustomerById(Integer customerId, String key) throws CustomerException, LoginException {
+	public Customer viewCustomerById(Integer customerId) throws CustomerException, LoginException {
 		
-		CurrentSession cu = cuu.findByUuid(key);
-		if(cu == null) throw new LoginException("Please Login first !");
+		Optional<Customer> opt= dao.findById(customerId);
 		
-		Optional<Customer> curentUser = dao.findById(customerId);
-		if(curentUser.isEmpty()) throw new  CustomerException("Customer does not exist");
-		
-		return curentUser.get();
+		if(opt.isPresent()) {
+						
+			Customer cust=opt.get();
+						
+			return cust;
+			
+		}
+		else {
+			
+			throw new CustomerException("Customer not present for given customer Id: "+customerId);
+			
+		}
 	}
+
+
+	@Override
+	public List<Customer> viewAllCustomer() throws CustomerException {
+		
+		List<Customer> customerList= dao.findAll();
+		
+		if(customerList.isEmpty()) {
+			
+			throw new CustomerException("No customer found");
+			
+		}
+		else {
+			
+			return customerList;
+			
+		}
+	}
+
 
 }

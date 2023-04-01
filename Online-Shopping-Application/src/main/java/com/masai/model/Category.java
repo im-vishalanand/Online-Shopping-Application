@@ -6,6 +6,7 @@ import java.util.List;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
@@ -22,6 +23,7 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Category {
 
+	@Id
 	@NotNull(message="{Category.id.invalid}")
 	@NotEmpty(message="{Category.id.invalid}")
 	@NotBlank(message="{Category.id.invalid}")
