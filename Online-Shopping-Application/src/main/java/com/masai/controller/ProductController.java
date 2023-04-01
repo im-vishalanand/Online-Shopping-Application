@@ -36,7 +36,7 @@ public class ProductController {
 	}
 	
 	
-	
+	@GetMapping
 	public ResponseEntity<List<Product>> viewAllProductsHandler() {
 
 		List<Product> products = productService.viewAllProduct();
