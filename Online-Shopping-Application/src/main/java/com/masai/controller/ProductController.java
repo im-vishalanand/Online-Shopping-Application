@@ -20,6 +20,8 @@ public class ProductController {
 	private ProductService proService;
 	
 	
+	
+	@PostMapping("/product")
 	public ResponseEntity<Product> addProductHandler(@Valid @RequestBody Product product) throws ProductException{
 		
 		Product addProd = proService.addProduct(product);
