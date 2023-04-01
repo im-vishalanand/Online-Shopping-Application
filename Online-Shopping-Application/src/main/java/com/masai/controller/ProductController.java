@@ -66,7 +66,7 @@ public class ProductController {
 	}
 	
 	
-	
+	@GetMapping("/category/{categoryName}")
 	public ResponseEntity<List<Product>> viewProductByCategoryHandler(@PathVariable("categoryName") String categoryName) {
 
 		List<Product> prodCateg = productService.viewProductByCategory(categoryName);
