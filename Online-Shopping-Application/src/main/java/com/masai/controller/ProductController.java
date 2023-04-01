@@ -50,6 +50,8 @@ public class ProductController {
 	public ResponseEntity<Product> updateProductHandler(@RequestBody Product product) {
 		
 		Product prod = productService.updateProduct(product);
+	
+		return new ResponseEntity<Product>(prod, HttpStatus.ACCEPTED);
 	}
 	
 	
