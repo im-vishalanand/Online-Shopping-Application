@@ -17,6 +17,8 @@ public class orderController {
 		 
 		 Order addedOrder = orderService.addOrder(order);
 		 
+		 return new ResponseEntity<>(addedOrder, HttpStatus.CREATED);
+		 
 	 }
 	
 	
