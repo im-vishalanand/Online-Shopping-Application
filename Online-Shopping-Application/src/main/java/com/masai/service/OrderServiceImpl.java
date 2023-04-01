@@ -29,8 +29,9 @@ public class OrderServiceImpl implements OrderService{
     }
 
     @Override
-    public Orders removeOrder(Orders order)throws OrderException {
-        Optional<Orders> byId = orderDao.findById(order.getOrderId());
+    public Orders removeOrder(Integer orderId)throws OrderException {
+    	
+        Optional<Orders> byId = orderDao.findById(orderId);
 
         if (byId.isPresent()) {
 
@@ -39,15 +40,17 @@ public class OrderServiceImpl implements OrderService{
             return order1;
 
         }
-        else throw new OrderException("No Order Found with this Id"+order.getOrderId());
+        else throw new OrderException("No Order Found with this Id: "+orderId);
     }
 
     @Override
-    public Orders viewOrder(Orders order)throws OrderException {
-        Optional<Orders> byId = orderDao.findById(order.getOrderId());
+    public List<Orders> viewAllOrder()throws OrderException {
+        List<Orders> orderList = orderDao.findAll();
 
-        if (byId.isPresent()) return orderDao.save(order);
-        else throw new OrderException("No Order Found with this Id"+order.getOrderId());
+        if (!orderList.isEmpty()) {
+        	return orderList;
+        }
+        else throw new OrderException("No Order Found");
     }
 
     @Override
