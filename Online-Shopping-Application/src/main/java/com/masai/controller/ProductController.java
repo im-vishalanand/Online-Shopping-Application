@@ -69,6 +69,8 @@ public class ProductController {
 	
 	public ResponseEntity<List<Product>> viewProductByCategoryHandler(@PathVariable("categoryName") String categoryName) {
 
+		List<Product> prodCateg = productService.viewProductByCategory(categoryName);
+
 	
 	}
 	
