@@ -39,10 +39,10 @@ public class CustomerController {
 	
 	
 	
-	public ResponseEntity<Customer> veiwCustomerByIdHandler(@RequestParam Integer customerId, String key) throws CustomerException, LoginException  {
+	public ResponseEntity<Customer> veiwCustomerByIdHandler(@RequestParam Integer customerId,@RequestParam String key) throws CustomerException, LoginException  {
 
 	
-	
+		Customer existingcustomer = customerService.veiwCustomerById(customerId, key);
 	}
 	
 	
