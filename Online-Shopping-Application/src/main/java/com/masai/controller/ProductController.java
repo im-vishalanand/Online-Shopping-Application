@@ -22,14 +22,14 @@ public class ProductController {
 
 	
 	@Autowired
-	private ProductService proService;
+	private ProductService productService;
 	
 	
 	
 	@PostMapping
 	public ResponseEntity<Product> addProductHandler(@Valid @RequestBody Product product) throws ProductException{
 		
-		Product addProd = proService.addProduct(product);
+		Product addProd = productService.addProduct(product);
 		
 		return new ResponseEntity<Product>(addProd, HttpStatus.CREATED);	
 		
@@ -39,6 +39,7 @@ public class ProductController {
 	
 	public ResponseEntity<List<Product>> viewAllProductsHandler() {
 
+		List<Product> products = productService.viewAllProduct();
 
 		
 	}
