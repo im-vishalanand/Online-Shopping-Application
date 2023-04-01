@@ -23,6 +23,8 @@ public class ProductController {
 		
 		Product addProd = prodServ.addProduct(product);
 		
+		return new ResponseEntity<Product>(addProd, HttpStatus.CREATED);
+		
 		
 		
 		
