@@ -43,6 +43,8 @@ public class CustomerController {
 
 	
 		Customer existingcustomer = customerService.veiwCustomerById(customerId, key);
+		
+		return new ResponseEntity<>(existingcustomer, HttpStatus.CREATED);
 	}
 	
 	
