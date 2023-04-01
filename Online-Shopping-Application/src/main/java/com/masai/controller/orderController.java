@@ -22,6 +22,8 @@ public class orderController {
     private OrderService orderService;
 	
 	
+	
+	
 	@PostMapping
 	 public ResponseEntity<Orders> addOrderHandler(@RequestBody Orders order){
 		 
@@ -36,7 +38,6 @@ public class orderController {
 	@PutMapping
 	 public ResponseEntity<Orders> updateOrderHandler(@RequestBody Orders order){
 
-	 
 		 Orders updateOrder = orderService.updateOrder(order);
 	 
 		 return new ResponseEntity<>(updateOrder, HttpStatus.ACCEPTED);
@@ -59,7 +60,6 @@ public class orderController {
 	 public ResponseEntity<Orders> viewOrderHandler(Orders order){
 		 
 		 Orders viewOrder = orderService.viewOrder(order);
-		 
 		 
 		 return new ResponseEntity<>(viewOrder, HttpStatus.OK);
 		 
