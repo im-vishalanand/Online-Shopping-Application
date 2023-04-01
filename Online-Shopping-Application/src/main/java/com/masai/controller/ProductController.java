@@ -58,13 +58,19 @@ public class ProductController {
 	
 	
 	@GetMapping("/{prodId}")
-	public ResponseEntity<Product> viewProductHandler(@PathVariable("prodId") Integer prodId) {
+	public ResponseEntity<Product> viewProductHandler(@PathVariable("prodId") Integer prodId) throws ProductException {
 
 		Product product = productService.viewProduct(prodId);
 		
 		return new ResponseEntity<Product>(product, HttpStatus.OK);
 	}
 	
+	
+	
+	public ResponseEntity<List<Product>> viewProductByCategoryHandler(@PathVariable("categoryName") String categoryName) {
+
+	
+	}
 	
 	
 	
