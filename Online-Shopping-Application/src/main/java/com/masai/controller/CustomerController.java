@@ -40,6 +40,14 @@ public class CustomerController {
 	
 	
 	
+	public ResponseEntity<Customer> veiwCustomerByIdHandler(Integer customerId, String key) throws CustomerException, LoginException  {
+
+	
+	
+	}
+	
+	
+	
 	
 	
 	
