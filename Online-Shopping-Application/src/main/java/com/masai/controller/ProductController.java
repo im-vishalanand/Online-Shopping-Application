@@ -13,7 +13,10 @@ public class ProductController {
 	private ProductService prodServ;
 	
 	
-	
+	public ResponseEntity<Product> addProductHandler(@Valid @RequestBody Product product) throws ProductException{
+		
+		
+	}
 	
 	
 	
