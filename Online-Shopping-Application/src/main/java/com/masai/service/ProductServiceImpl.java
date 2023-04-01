@@ -11,7 +11,7 @@ import com.masai.model.Category;
 import com.masai.model.Product;
 import com.masai.repository.ProductDao;
 @Service
-public class ProductSeriveImpl implements ProductService{
+public class ProductServiceImpl implements ProductService{
 
 	@Autowired
 	private ProductDao pdao;

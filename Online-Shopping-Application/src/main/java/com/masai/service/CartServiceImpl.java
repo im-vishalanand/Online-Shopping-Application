@@ -18,15 +18,15 @@ public class CartServiceImpl implements CartService{
 
 	    @Override
 	    public Cart addProductToCart(Cart cart, Product p, int quantity) throws CartException {
-			return null;
-//	        Optional<Cart> byId = cartDao.findById(cart.getCartId());
-//	        if (byId.isPresent()) {
-//	            Cart cart1 = byId.get();
-//	            cart1.getProductDtoList().put(p,quantity);
-//	            cartDao.save(cart1);
-//	            return cart1;
-//	        }
-//	        else throw new CartException("No Cart Found with this Id"+cart.getCartId());
+//			return null;
+	        Optional<Cart> byId = cartDao.findById(cart.getCartId());
+	        if (byId.isPresent()) {
+	            Cart cart1 = byId.get();
+	            cart1.getProductList().add(p);
+	            cartDao.save(cart1);
+	            return cart1;
+	        }
+	        else throw new CartException("No Cart Found with this Id"+cart.getCartId());
 	    }
 
 	    @Override
