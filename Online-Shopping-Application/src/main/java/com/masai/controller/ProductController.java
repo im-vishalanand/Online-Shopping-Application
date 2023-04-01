@@ -35,7 +35,11 @@ public class ProductController {
 	
 	
 	
-	
+	public ResponseEntity<List<Product>> viewAllProductsHandler() {
+
+
+		
+	}
 	
 	
 	
