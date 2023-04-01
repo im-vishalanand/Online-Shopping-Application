@@ -41,18 +41,18 @@ public class Address {
 	@NotNull(message = "{Address.state.invalid}")
 	@NotEmpty(message = "{Address.state.invalid}")
 	@NotBlank(message = "{Address.state.invalid}")
-	@Size(min = 2, message = "{Address.city.invalid}")
+	@Size(min = 2, message = "{Address.state.invalid}")
 	private String state;
 
 	@NotNull(message = "{Address.pincode.invalid}")
 	@NotEmpty(message = "{Address.pincode.invalid}")
 	@NotBlank(message = "{Address.pincode.invalid}")
-	@Size(min = 6, max = 6, message = "{Address.city.invalid}")
+	@Size(min = 6, max = 6, message = "{Address.pincode.invalid}")
 	private String pincode;
 	
 	@NotNull(message = "{Address.country.invalid}")
 	@NotEmpty(message = "{Address.country.invalid}")
 	@NotBlank(message = "{Address.country.invalid}")
-	@Size(min = 2, message = "{Address.city.invalid}")
+	@Size(min = 2, message = "{Address.country.invalid}")
 	private String country;
 }

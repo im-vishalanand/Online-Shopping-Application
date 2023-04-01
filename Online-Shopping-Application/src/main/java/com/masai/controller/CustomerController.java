@@ -1,13 +1,22 @@
 package com.masai.controller;
 
+import java.util.List;
+
+import javax.security.auth.login.LoginException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.masai.exception.CustomerException;
 import com.masai.model.Customer;
 import com.masai.service.CustomerService;
 
@@ -20,28 +29,50 @@ public class CustomerController {
 	@Autowired
 	private CustomerService customerService;
 	
-	@PostMapping
-	public ResponseEntity<Customer> addCustomerHandler( @RequestBody Customer customer)  {
-		Customer savedcustomer = customerService.addCustomer(customer);
-		return new ResponseEntity<>(savedcustomer, HttpStatus.CREATED);
+	@PostMapping(value = "/addCustomer")
+	public ResponseEntity<Customer> addCustomerController(@Valid @RequestBody Customer customer){
+		
+		Customer savedCustomer= customerService.addCustomer(customer);
+		
+		return new ResponseEntity<Customer>(savedCustomer, HttpStatus.OK);
+		
 	}
 	
+	@PutMapping(value = "/updateCustomer")
+	public ResponseEntity<Customer> updateCustomerController(@Valid @RequestBody Customer customer) throws CustomerException, LoginException{
+		
+		Customer updatedCustomer= customerService.updateCoustomer(customer);
+		
+		return new ResponseEntity<Customer>(updatedCustomer, HttpStatus.OK);
+		
+	}
 	
-//	{
-//	    "firstName":"firstName",
-//	    "lastName":"lastName",
-//	    "mobileNumber":"121231231233",
-//	    "password":"password12",
-//	    "address":{
-//	        "streetName":"streetName",
-//	        "buildingName":"buildingName",
-//	        "city":"city",
-//	        "state":"state",
-//	        "pincode":"pincode",
-//	        "country":"country"
-//	    },
-//	    "email":"email@mail.com"
-//	}
+	@DeleteMapping(value = "/deleteCustomer")
+	public ResponseEntity<Customer> removeCustomerController(@Valid @RequestParam Integer customerId) throws CustomerException, LoginException{
+		
+		Customer removedCustomer= customerService.removeCustomer(customerId);
+		
+		return new ResponseEntity<Customer>(removedCustomer, HttpStatus.OK);
+		
+	}
+	
+	@GetMapping(value = "/ViewCustomer")
+	public ResponseEntity<Customer> viewCustomerController(@Valid @RequestParam Integer customerId) throws CustomerException, LoginException{
+		
+		Customer fetchedCustomer= customerService.viewCustomerById(customerId);
+		
+		return new ResponseEntity<Customer>(fetchedCustomer, HttpStatus.OK);
+		
+	}
+	
+	@GetMapping(value = "/ViewAllCustomers")
+	public ResponseEntity<List<Customer>> viewAllCustomerController(){
+		
+		List<Customer> customerList= customerService.viewAllCustomer();
+		
+		return new ResponseEntity<List<Customer>>(customerList, HttpStatus.OK);
+		
+	}
 	
 	
 	
