@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.masai.exception.ProductException;
@@ -50,7 +51,7 @@ public class ProductController {
 	
 	
 	@PutMapping
-	public ResponseEntity<Product> updateProductHandler(@RequestBody Product product)  throws ProductException {
+	public ResponseEntity<Product> updateProductHandler(@Valid @RequestBody Product product)  throws ProductException {
 		
 		Product prod = productService.updateProduct(product);
 	
@@ -59,7 +60,7 @@ public class ProductController {
 	
 	
 	@GetMapping("/{prodId}")
-	public ResponseEntity<Product> viewProductHandler(@PathVariable("prodId") Integer prodId) throws ProductException {
+	public ResponseEntity<Product> viewProductHandler(@Valid @PathVariable("prodId") Integer prodId) throws ProductException {
 
 		Product product = productService.viewProduct(prodId);
 		
@@ -68,7 +69,7 @@ public class ProductController {
 	
 	
 	@GetMapping("/category/{categoryName}")
-	public ResponseEntity<List<Product>> viewProductByCategoryHandler(@PathVariable("categoryName") String categoryName) {
+	public ResponseEntity<List<Product>> viewProductByCategoryHandler(@Valid @PathVariable("categoryName") String categoryName) {
 
 		List<Product> prodCateg = productService.viewProductByCategory(categoryName);
 

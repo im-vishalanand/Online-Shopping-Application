@@ -1,5 +1,7 @@
 package com.masai.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -48,6 +50,7 @@ public class Product {
 	@NotNull(message = "{Product.quantity.invalid}")
 	private Integer quantity;
 	
+	@JsonIgnore
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Category category;
 	
