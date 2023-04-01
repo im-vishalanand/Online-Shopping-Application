@@ -1,5 +1,7 @@
 package com.masai.controller;
 
+import javax.security.auth.login.LoginException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.masai.exception.CustomerException;
 import com.masai.model.Customer;
 import com.masai.service.CustomerService;
 
@@ -28,11 +31,11 @@ public class CustomerController {
 	}
 	
 	@PutMapping
-	public ResponseEntity<Customer> updateCoustomerHandler( @RequestBody Customer customer, String key)  {
+	public ResponseEntity<Customer> updateCoustomerHandler( @RequestBody Customer customer, String key) throws CustomerException, LoginException  {
 
 		Customer existingcustomer = customerService.updateCoustomer(customer, key);
 	
-		
+		return new ResponseEntity<>(existingcustomer, HttpStatus.CREATED);
 	}
 	
 	
