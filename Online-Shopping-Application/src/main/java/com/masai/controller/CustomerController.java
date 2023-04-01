@@ -36,14 +36,16 @@ public class CustomerController {
 
 		Customer existingcustomer = customerService.updateCoustomer(customer, key);
 	
-		return new ResponseEntity<>(existingcustomer, HttpStatus.CREATED);
+		return new ResponseEntity<>(existingcustomer, HttpStatus.ACCEPTED);
 	}
 	
 	
 	@DeleteMapping
-	public ResponseEntity<Customer> veiwCustomerByIdHandler(@RequestParam Integer customerId,@RequestParam String key) throws CustomerException, LoginException  {
+	public ResponseEntity<Customer> removeCustomerIdHandler(@RequestBody Customer customer,@RequestParam String key) throws CustomerException, LoginException  {
 
-	
+		Customer existingcustomer = customerService.removeCustomer(customer, key);
+		
+		return new ResponseEntity<>(existingcustomer, HttpStatus.ACCEPTED);
 	
 	}
 	
@@ -55,7 +57,7 @@ public class CustomerController {
 		
 		Customer existingcustomer = customerService.veiwCustomerById(customerId, key);
 		
-		return new ResponseEntity<>(existingcustomer, HttpStatus.CREATED);
+		return new ResponseEntity<>(existingcustomer, HttpStatus.OK);
 	}
 	
 	
