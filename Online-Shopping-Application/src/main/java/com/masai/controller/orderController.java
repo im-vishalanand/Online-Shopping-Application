@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.masai.model.Orders;
@@ -68,8 +69,8 @@ public class orderController {
 	 }
 	 
 	 
-	 @GetMapping()
-	 public ResponseEntity<List<Orders>> viewAllOrdersByLocationHandler(String loc){
+	 @GetMapping("/{loc}")
+	 public ResponseEntity<List<Orders>> viewAllOrdersByLocationHandler(@RequestParam String loc){
 
 		 List<Orders> listOfOrders = orderService.viewAllOrdersByLocation(loc);
 		 
