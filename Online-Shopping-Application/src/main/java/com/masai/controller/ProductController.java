@@ -46,7 +46,7 @@ public class ProductController {
 	}
 	
 	
-	
+	@PutMapping
 	public ResponseEntity<Product> updateProductHandler(@RequestBody Product product) {
 		
 		Product prod = productService.updateProduct(product);
