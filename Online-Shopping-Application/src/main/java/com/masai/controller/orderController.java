@@ -49,7 +49,7 @@ public class orderController {
 	 
 	 
 	 @DeleteMapping
-	 public ResponseEntity<Orders> removeOrderHandler(Orders order){
+	 public ResponseEntity<Orders> removeOrderHandler(@RequestBody Orders order){
 		 
 		 Orders orderRemove = orderService.removeOrder(order);
 
@@ -59,7 +59,7 @@ public class orderController {
 	 
 	 
 	 @GetMapping
-	 public ResponseEntity<Orders> viewOrderHandler(Orders order){
+	 public ResponseEntity<Orders> viewOrderHandler(@RequestBody Orders order){
 		 
 		 Orders viewOrder = orderService.viewOrder(order);
 		 
@@ -68,7 +68,7 @@ public class orderController {
 	 }
 	 
 	 
-	 
+	 @GetMapping()
 	 public ResponseEntity<List<Orders>> viewAllOrdersByLocationHandler(String loc){
 
 		 List<Orders> listOfOrders = orderService.viewAllOrdersByLocation(loc);
