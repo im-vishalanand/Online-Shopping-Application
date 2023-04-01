@@ -21,7 +21,7 @@ import com.masai.service.ProductService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/products")
 public class ProductController {
 
 	
