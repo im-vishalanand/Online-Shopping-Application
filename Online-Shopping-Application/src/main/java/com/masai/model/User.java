@@ -22,7 +22,7 @@ public class User {
 	@NotBlank(message = "{User.id.invalid}")
 	@NotEmpty(message = "{User.id.invalid}")
 	@Size(min = 10, max = 12, message = "{User.id.invalid}")
-	private String id;
+	private String id;   // It is the mobile number
 
 	@NotNull(message = "{User.password.invalid}")
 	@NotBlank(message = "{User.password.invalid}")
