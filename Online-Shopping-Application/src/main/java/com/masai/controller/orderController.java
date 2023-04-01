@@ -48,8 +48,7 @@ public class orderController {
 		 
 		 Orders orderRemove = orderService.removeOrder(order);
 
-		 
-		 
+		 return new ResponseEntity<>(orderRemove, HttpStatus.ACCEPTED);		 
 		 
 	 }
 	 
