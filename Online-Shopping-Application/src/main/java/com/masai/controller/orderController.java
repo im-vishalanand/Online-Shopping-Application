@@ -12,7 +12,7 @@ public class orderController {
     private OrderService orderService;
 	
 	
-	
+	@PostMapping("/orders/setOrder")@PostMapping("/orders/setOrder")
 	 public ResponseEntity<Order> addOrderHandler(@RequestBody Order order){
 		 
 		 Order addedOrder = orderService.addOrder(order);
