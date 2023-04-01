@@ -27,7 +27,7 @@ public class Category {
 	@NotNull(message="{Category.id.invalid}")
 	@NotEmpty(message="{Category.id.invalid}")
 	@NotBlank(message="{Category.id.invalid}")
-	@Size(min = 4, max = 6, message = "{Category.id.invalid}")
+//	@Size(min = 4, max = 6, message = "{Category.id.invalid}")
 	private Integer categoryId;
 	
 	@NotNull(message = "{Category.name.invalid}")
