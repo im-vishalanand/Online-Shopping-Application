@@ -28,9 +28,11 @@ public class CustomerController {
 	}
 	
 	@PutMapping
-	public ResponseEntity<Customer> updateCoustomerHandler( @RequestBody Customer customer)  {
+	public ResponseEntity<Customer> updateCoustomerHandler( @RequestBody Customer customer, String key)  {
 
+		customerService.updateCoustomer(customer, key);
 	
+		
 	}
 	
 	
