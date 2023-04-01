@@ -46,7 +46,35 @@ public class CustomerController {
 		return new ResponseEntity<Customer>(updatedCustomer, HttpStatus.OK);
 		
 	}
+	@PutMapping
+	public ResponseEntity<Customer> updateCoustomerHandler( @RequestBody Customer customer) throws CustomerException, LoginException  {
+
+		Customer existingcustomer = customerService.updateCoustomer(customer);
 	
+		return new ResponseEntity<>(existingcustomer, HttpStatus.ACCEPTED);
+	}
+	
+	
+	@DeleteMapping
+	public ResponseEntity<Customer> removeCustomerIdHandler(@RequestParam Integer customerId) throws CustomerException, LoginException  {
+
+		Customer existingcustomer = customerService.removeCustomer(customerId);
+		
+		return new ResponseEntity<>(existingcustomer, HttpStatus.ACCEPTED);
+	
+	}
+	
+	
+	
+	@GetMapping
+	public ResponseEntity<Customer> veiwCustomerByIdHandler(@RequestParam Integer customerId) throws CustomerException, LoginException  {
+		
+		
+		Customer existingcustomer = customerService.viewCustomerById(customerId);
+		
+		return new ResponseEntity<>(existingcustomer, HttpStatus.OK);
+	}
+		
 	@DeleteMapping(value = "/deleteCustomer")
 	public ResponseEntity<Customer> removeCustomerController(@Valid @RequestParam Integer customerId) throws CustomerException, LoginException{
 		
