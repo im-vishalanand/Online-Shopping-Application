@@ -15,6 +15,7 @@ public class orderController {
 	
 	 public ResponseEntity<Order> addOrderHandler(@RequestBody Order order){
 		 
+		 Order addedOrder = orderService.addOrder(order);
 		 
 	 }
 	
