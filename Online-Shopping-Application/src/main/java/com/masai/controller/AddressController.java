@@ -12,46 +12,48 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.masai.model.Address;
 import com.masai.service.AddressService;
 
 import jakarta.validation.Valid;
+import lombok.val;
 
 @RestController
-//@RequestMapping("/addresses")
+@RequestMapping("/addresses")
 public class AddressController {
 	
 	@Autowired
 	private AddressService addressService;
 	
-	@PostMapping("/addresses")
+	@PostMapping("/addAddress")
 	public ResponseEntity<Address> addAddressHandler(@Valid @RequestBody Address add) {
 		Address ad = addressService.addAddress(add);
 		return new ResponseEntity<Address>(ad, HttpStatus.OK);
 	}
 
-	@PutMapping("/addresses")
-	public ResponseEntity<Address> updateAddressHandler(@RequestBody Address add) {
+	@PutMapping("/updateAddress")
+	public ResponseEntity<Address> updateAddressHandler(@Valid @RequestBody Address add) {
 		Address ad = addressService.updateAddress(add);
 		return new ResponseEntity<Address>(ad, HttpStatus.ACCEPTED);
 	}
 	
-	@DeleteMapping("/addresses/{addressId}")
-    public ResponseEntity<Address> deleteAddressHandler(@PathVariable("addressId") Integer addId) {
+	@DeleteMapping("/deleteAddress")
+    public ResponseEntity<Address> deleteAddressHandler(@Valid @RequestParam("addressId") Integer addId) {
         Address ad = addressService.removeAddress(addId);
         return new ResponseEntity<Address>(ad, HttpStatus.OK);
     }
     
-	@GetMapping("/addresses")
+	@GetMapping("/getAllAddress")
     public ResponseEntity<List<Address>> getAllAddressHandler() {
         List<Address> allAddress = addressService.viewAllAddress();
         return new ResponseEntity<List<Address>>(allAddress, HttpStatus.OK);
     }
 
-    @GetMapping("/addresses/{addressId}")
-    public ResponseEntity<Address> getAddressHandler(@PathVariable("addressId") Integer addressId) {
+    @GetMapping("/getAddress")
+    public ResponseEntity<Address> getAddressHandler(@Valid @RequestParam("addressId") Integer addressId) {
 
         Address existingAddress = addressService.viewAddress(addressId);
 

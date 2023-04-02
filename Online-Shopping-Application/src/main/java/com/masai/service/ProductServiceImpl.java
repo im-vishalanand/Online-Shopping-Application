@@ -29,10 +29,14 @@ public class ProductServiceImpl implements ProductService{
 
 	@Override
 	public Product addProduct(Product product) throws ProductException {
-		Category c = product.getCategory();
-		c.getProductList().add(product);
+
+		
+//		Category category= product.getCategory(); 
+//		
+//		category.getProductList().add(product);
 		
 		Product prod = pdao.save(product);
+		
 		return prod;
 	}
 
