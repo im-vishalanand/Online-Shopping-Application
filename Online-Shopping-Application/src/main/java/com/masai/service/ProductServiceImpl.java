@@ -10,18 +10,24 @@ import com.masai.exception.ProductException;
 import com.masai.model.Category;
 import com.masai.model.Product;
 import com.masai.repository.ProductDao;
+
+
 @Service
 public class ProductServiceImpl implements ProductService{
 
 	@Autowired
 	private ProductDao pdao;
+
 	
 	@Override
 	public List<Product> viewAllProduct() throws ProductException {
+		
 		List<Product> products = pdao.findAll();
+		
 		if(products.size() > 0) {
 			return products;
 		}
+		
 		else {
 			throw new ProductException("Product not available");
 		}

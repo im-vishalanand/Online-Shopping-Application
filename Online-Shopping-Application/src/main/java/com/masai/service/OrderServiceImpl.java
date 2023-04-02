@@ -44,7 +44,9 @@ public class OrderServiceImpl implements OrderService{
         if (byId.isPresent()) {
 
             Orders order1 = byId.get();
+           
             orderDao.delete(order1);
+            
             return order1;
 
         }
