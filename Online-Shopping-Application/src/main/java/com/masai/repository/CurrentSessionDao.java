@@ -9,4 +9,6 @@ import com.masai.model.CurrentSession;
 public interface CurrentSessionDao extends JpaRepository<CurrentSession, Integer>{
 
 	public CurrentSession findByUuid(String uuid);
+	
+	
 }

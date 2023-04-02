@@ -65,6 +65,17 @@
 		    <version>2.0.4</version>
 		</dependency>
 		
+		
+		
+		<!-- https://mvnrepository.com/artifact/net.bytebuddy/byte-buddy -->
+		<!-- for randaom key generation -->
+<dependency>
+    <groupId>net.bytebuddy</groupId>
+    <artifactId>byte-buddy</artifactId>
+    <version>1.14.3</version>
+</dependency>
+
+		
 	</dependencies>
 
 	<build>

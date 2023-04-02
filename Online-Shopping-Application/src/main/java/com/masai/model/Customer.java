@@ -22,7 +22,6 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Entity
 @Data
@@ -63,6 +62,7 @@ public class Customer {
 	@NotEmpty(message = "{Customer.email.invalid}")
 	@NotBlank(message = "{Customer.email.invalid}")
 	@Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}", flags = Pattern.Flag.CASE_INSENSITIVE, message = "{Customer.email.invalid}")
+	@Column(unique = true)
 	private String email;
 
 	

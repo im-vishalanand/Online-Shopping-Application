@@ -16,15 +16,23 @@ public class OrderServiceImpl implements OrderService{
 
     @Override
     public Orders addOrder(Orders order) {
+    	
+    	order.getCustomer().getListOfOrders().add(order);
+    	
+    	
         Orders save = orderDao.save(order);
+        
         return save;
     }
 
     @Override
     public Orders updateOrder(Orders order)throws OrderException {
+    	
         Optional<Orders> byId = orderDao.findById(order.getOrderId());
 
+        
         if (byId.isPresent()) return orderDao.save(order);
+        
         else throw new OrderException("No Order Found with this Id"+order.getOrderId());
     }
 
