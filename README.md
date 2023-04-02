@@ -2,7 +2,7 @@
 
 ![1](https://user-images.githubusercontent.com/108060013/228165545-74718570-01b4-46d7-a295-347587c23629.png)
 
-## REST A.P.I.
+## REST A.P.I
 Online Shopping Application allows customers to browse and purchase products with a good user-friendly interface. The API is designed to provide a wide range of functionalities for managing products, orders, and customer along with different functionalities of admin and its information.
 
 The API offers features for browsing products, including the ability to save items to a cart for future purchase.It also supports CRUD operations for managing products and orders.
