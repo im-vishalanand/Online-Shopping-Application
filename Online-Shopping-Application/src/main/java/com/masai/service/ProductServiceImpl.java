@@ -29,6 +29,7 @@ public class ProductServiceImpl implements ProductService{
 
 	@Override
 	public Product addProduct(Product product) throws ProductException {
+
 		
 //		Category category= product.getCategory(); 
 //		
