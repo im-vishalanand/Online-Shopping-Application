@@ -53,9 +53,11 @@ public class OrderServiceImpl implements OrderService{
 
     @Override
     public List<Orders> viewAllOrder()throws OrderException {
+    	
         List<Orders> orderList = orderDao.findAll();
 
         if (!orderList.isEmpty()) {
+        	
         	return orderList;
         }
         else throw new OrderException("No Order Found");
@@ -67,8 +69,10 @@ public class OrderServiceImpl implements OrderService{
         List<Orders> list= orderDao.getOrderByCity(loc);
 
         if( list.size() < 1) {
+        	
             throw new OrderException("No order found with this userId.");
         }
+        
         return list;
 
     }
@@ -79,7 +83,9 @@ public class OrderServiceImpl implements OrderService{
         List<Orders> list = orderDao.getOrdersByUserId(userid);
 
         if( list.size() < 1) {
+        	
             throw new OrderException("No order found with this userId.");
+        
         }
 
         return list;
