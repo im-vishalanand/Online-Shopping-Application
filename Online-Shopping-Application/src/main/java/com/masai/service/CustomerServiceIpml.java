@@ -10,10 +10,13 @@ import org.springframework.stereotype.Service;
 
 import com.masai.exception.CustomerException;
 import com.masai.model.Customer;
+import com.masai.model.Orders;
 import com.masai.repository.CurrentSessionDao;
 import com.masai.repository.CustomerDao;
 @Service
 public class CustomerServiceIpml implements CustomerService{
+	
+	
 	@Autowired
 	private CustomerDao dao;
 	
@@ -22,13 +25,25 @@ public class CustomerServiceIpml implements CustomerService{
 	
 	
 	@Override
-	public Customer addCustomer(Customer coustomer) {
+	public Customer addCustomer(Customer customer) {
 		
-		Customer existingCustomer = dao.findByEmail(coustomer.getEmail());
-		if (existingCustomer != null)
+		Customer existingCustomer = dao.findByEmail(customer.getEmail());
+		
+		if (existingCustomer != null) {
+			
 			throw new CustomerException("Customer Already Registered with Email...!");
+		
+		}
+		
+		List<Orders> listOfOrders = customer.getListOfOrders();
+		
+		for(Orders order:listOfOrders) {
+			
+			order.setCustomer(existingCustomer);
+			
+		}
 
-		Customer cu = dao.save(coustomer);
+		Customer cu = dao.save(customer);
 		return cu;
 	}
 
