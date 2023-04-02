@@ -90,12 +90,12 @@ Run as Spring Boot App
 ```
 Open the following URL for Swagger-UI 
 ```bash
-http://localhost:8088/swagger-ui/
+http://localhost:8888/swagger-ui/
 ```
 
 ## ER Diagram
 
-
+![Untitled (4)](https://user-images.githubusercontent.com/108060013/229367477-6b0a3b30-743a-48ba-a84f-d2143e6b4058.png)
 
 ## Demo
 
