@@ -8,11 +8,13 @@ import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class CurrentSession {
 	
 	@Id
@@ -24,5 +26,5 @@ public class CurrentSession {
 	private LocalDateTime localDateTime;
 	
 	//true for admin and false for user
-	private Boolean type;
+//	private Boolean type;
 }

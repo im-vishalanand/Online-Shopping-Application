@@ -63,6 +63,7 @@ public class CustomerServiceIpml implements CustomerService{
 
 	@Override
 	public Customer removeCustomer(Integer customerId) throws CustomerException, LoginException {
+		
 		Optional<Customer> opt= dao.findById(customerId);
 		
 		if(opt.isPresent()) {
@@ -74,6 +75,7 @@ public class CustomerServiceIpml implements CustomerService{
 			return cust;
 			
 		}
+		
 		else {
 			
 			throw new CustomerException("Customer not present for given customer Id: "+customerId);
@@ -94,6 +96,7 @@ public class CustomerServiceIpml implements CustomerService{
 			return cust;
 			
 		}
+		
 		else {
 			
 			throw new CustomerException("Customer not present for given customer Id: "+customerId);
@@ -112,11 +115,13 @@ public class CustomerServiceIpml implements CustomerService{
 			throw new CustomerException("No customer found");
 			
 		}
+		
 		else {
 			
 			return customerList;
 			
 		}
+		
 	}
 
 
