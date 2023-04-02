@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.masai.exception.ProductException;
+import com.masai.model.Category;
 import com.masai.model.Product;
 import com.masai.repository.ProductDao;
 @Service
@@ -28,6 +29,9 @@ public class ProductServiceImpl implements ProductService{
 
 	@Override
 	public Product addProduct(Product product) throws ProductException {
+		Category c = product.getCategory();
+		c.getProductList().add(product);
+		
 		Product prod = pdao.save(product);
 		return prod;
 	}

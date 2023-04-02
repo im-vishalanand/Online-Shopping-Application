@@ -2,6 +2,7 @@ package com.masai.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Embeddable;
@@ -35,6 +36,7 @@ public class Category {
 	@NotBlank(message = "{Category.name.invalid}")
 	private String categoryName;
 	
+	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
 	private List<Product> productList;
 }
