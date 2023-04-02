@@ -6,8 +6,14 @@
 Online Shopping Application allows customers to browse and purchase products with a good user-friendly interface. The API is designed to provide a wide range of functionalities for managing products, orders, and customer along with different functionalities of admin and its information.
 
 The API offers features for browsing products, including the ability to save items to a cart for future purchase.It also supports CRUD operations for managing products and orders.
+This application will help Customer to buy the products and view order details.
+Customer can register themselves and login. Add product to the cart and purchase it .
+This application will help Admin to search Product list ,add new products ,remove products and update product .
+
 
 The application also includes user and admin validation and authentication.
+
+
 
 ## Tech Stack
 
