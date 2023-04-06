@@ -120,6 +120,30 @@ http://localhost:8888
 ![image](https://user-images.githubusercontent.com/108060013/229314565-c8fa5f14-87c0-43e7-ad14-0c6d6f74b523.png)
 
 
+
+# Contributors
+
+#### Kumar Vishal Anand
+> Github: [Im-vishalanand](https://github.com/Im-vishalanand) 
+(Teamlead)
+
+> => created the controller of order, product and user.
+
+> => Implemented the service methods order, product and user.
+
+#### Md Humair Raza
+> Github: [mdhumairraza](https://github.com/mdhumairraza)
+
+> => Created controller of Customer , admin, cart, address, login and logout.
+
+> => Implemented the service methods of Customer , admin, cart, address, login and logout.
+
+#### Vivek Sangode
+>Github: [vivekSangode](https://github.com/vivekSangode)
+Worked on Exceptional Handling and Respositories
+
+
+
 ## Acknowledgements
 
 - [Masai School](https://www.masaischool.com/)
