@@ -35,7 +35,7 @@ public class AddressController {
 
 	private CurrentUserSession cs;
 
-	@PostMapping
+	@PostMapping("/addAddress")
 	public ResponseEntity<Address> addAddressHandler(@Valid @RequestBody Address a, @RequestParam String uuid)
 			throws LoginException, AddressException, CustomerException {
 
@@ -51,7 +51,7 @@ public class AddressController {
 		return new ResponseEntity<>(add, HttpStatus.CREATED);
 	}
 
-	@DeleteMapping
+	@DeleteMapping("/removeAddress")
 	public ResponseEntity<Address> removeAddressHandler(@RequestParam Integer addressId, @RequestParam String uuid)
 			throws LoginException, AddressException {
 
@@ -63,7 +63,7 @@ public class AddressController {
 		return new ResponseEntity<>(aSer.removeAddress(addressId), HttpStatus.ACCEPTED);
 	}
 
-	@PutMapping
+	@PutMapping("/updateAddress")
 	public ResponseEntity<Address> updatedAddressHandler(@RequestBody Address add, @RequestParam String uuid)
 			throws LoginException, AddressException {
 
@@ -75,8 +75,8 @@ public class AddressController {
 		return new ResponseEntity<>(aSer.updateAddress(add), HttpStatus.ACCEPTED);
 	}
 
-	@GetMapping("/{addressId}")
-	public ResponseEntity<Address> viewAddressHandler(@PathVariable Integer addressId, @RequestParam String uuid)
+	@GetMapping("/viewAddressById")
+	public ResponseEntity<Address> viewAddressHandler(@RequestParam Integer addressId, @RequestParam String uuid)
 			throws LoginException, AddressException {
 
 		this.setCs(logService.getSessionByUuid(uuid));
@@ -87,7 +87,7 @@ public class AddressController {
 		return new ResponseEntity<>(aSer.viewAddress(addressId), HttpStatus.OK);
 	}
 
-	@GetMapping
+	@GetMapping("/viewAllAddress")
 	public ResponseEntity<Set<Address>> viewAllAddressHandler(@RequestParam String uuid)
 			throws LoginException, CustomerException, AddressException {
 
