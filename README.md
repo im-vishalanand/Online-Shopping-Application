@@ -95,8 +95,7 @@ http://localhost:8888/swagger-ui/
 
 ## ER Diagram
 
-![Untitled (4)](https://user-images.githubusercontent.com/108060013/229367477-6b0a3b30-743a-48ba-a84f-d2143e6b4058.png)
-
+![Untitled (6)](https://user-images.githubusercontent.com/108060013/230663364-c66551be-ad26-4727-9d69-698fc4e4c40b.png)
 ## Demo
 
 
@@ -104,20 +103,30 @@ http://localhost:8888/swagger-ui/
 ```bash
 http://localhost:8888
 ```
+
+## Admin API Reference
+![image](https://user-images.githubusercontent.com/108060013/230663739-ab543ce2-d04f-4375-8229-261697b51c6a.png)
+
+## Login & Logout API Reference
+![image](https://user-images.githubusercontent.com/108060013/230663800-30c78be6-7482-4829-9d0d-3df87feb169c.png)
+
+## User API Reference
+![image](https://user-images.githubusercontent.com/108060013/230663870-cc1b7502-41be-492d-9510-6a7e1082bfc8.png)
+
 ## Customer API Reference
-![image](https://user-images.githubusercontent.com/108060013/229314507-9e398f0d-b8c2-4355-85d0-e12cec43ea24.png)
+![image](https://user-images.githubusercontent.com/108060013/230663453-60e78195-e12b-4e55-85ee-35461721e155.png)
 
 ## Product API Reference
-![image](https://user-images.githubusercontent.com/108060013/229314531-83898492-1b4a-4b01-8e83-ac3caf77d081.png)
+![image](https://user-images.githubusercontent.com/108060013/230663499-4431ce14-aed9-4772-8009-57cce1b2b72f.png)
 
 ## Address API Reference
-![image](https://user-images.githubusercontent.com/108060013/229314548-7f7918f8-2595-45c5-8b99-c0b43501cb5f.png)
+![image](https://user-images.githubusercontent.com/108060013/230663546-20e36ee8-e10e-4b81-9551-0673960b30cb.png)
 
 ## Cart API Reference
-![image](https://user-images.githubusercontent.com/108060013/229314557-de7e4e02-0524-4fcd-81b9-f0cc793d20f7.png)
+![image](https://user-images.githubusercontent.com/108060013/230663604-78a871d6-fb5f-41b8-b1e9-0c9361cf9b57.png)
 
 ## Order API Reference
-![image](https://user-images.githubusercontent.com/108060013/229314565-c8fa5f14-87c0-43e7-ad14-0c6d6f74b523.png)
+![image](https://user-images.githubusercontent.com/108060013/230663655-83ffd46b-3520-4495-8994-daead1c76a07.png)
 
 
 
