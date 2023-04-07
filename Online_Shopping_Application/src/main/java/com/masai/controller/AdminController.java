@@ -52,8 +52,8 @@ public class AdminController {
 
 	}
 
-	@DeleteMapping("/{productId}")
-	public ResponseEntity<Product> removeProductHandler(@PathVariable("productId") Integer productId,
+	@DeleteMapping("/removeProduct")
+	public ResponseEntity<Product> removeProductHandler(@RequestParam Integer productId,
 			@RequestParam String uuid) throws LoginException, ProductException, UserException {
 
 		this.setCs(logService.getSessionByUuid(uuid));
@@ -70,7 +70,7 @@ public class AdminController {
 
 	}
 
-	@PutMapping
+	@PutMapping("/updateProduct")
 	public ResponseEntity<Product> updateProductHandler(@RequestBody Product product, @RequestParam String uuid)
 			throws ProductException, LoginException, UserException {
 
