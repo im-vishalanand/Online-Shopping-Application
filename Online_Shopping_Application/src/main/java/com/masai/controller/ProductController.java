@@ -29,7 +29,7 @@ public class ProductController {
 
 	private CurrentUserSession cs;
 
-	@GetMapping("/all")
+	@GetMapping("/viewAllProducts")
 	public ResponseEntity<List<Product>> viewAllProductsHandler(@RequestParam String uuid)
 			throws ProductException, LoginException {
 
@@ -38,7 +38,7 @@ public class ProductController {
 		return new ResponseEntity<>(products, HttpStatus.OK);
 	}
 
-	@GetMapping("/categorys/{category}")
+	@GetMapping("/viewProductByCategory")
 	public ResponseEntity<List<Product>> viewProductByCategoryHandler(@PathParam(value = "category") String category,
 			@RequestParam String uuid) throws LoginException, ProductException {
 
@@ -52,8 +52,8 @@ public class ProductController {
 		return new ResponseEntity<>(products, HttpStatus.OK);
 	}
 
-	@GetMapping("/names/{productName}")
-	public ResponseEntity<List<Product>> viewProductByNameHandler(@PathParam(value = "productName") String productName,
+	@GetMapping("viewProductByName")
+	public ResponseEntity<List<Product>> viewProductByNameHandler(@RequestParam(value = "productName") String productName,
 			@RequestParam String uuid) throws LoginException, ProductException {
 
 		this.setCs(logService.getSessionByUuid(uuid));
@@ -66,7 +66,7 @@ public class ProductController {
 		return new ResponseEntity<>(products, HttpStatus.OK);
 	}
 
-	@GetMapping("/{productId}")
+	@GetMapping("/viewProductById")
 	public ResponseEntity<Product> viewProductHandler(@PathParam(value = "productId") Integer productId,
 			@RequestParam String uuid) throws LoginException, ProductException {
 

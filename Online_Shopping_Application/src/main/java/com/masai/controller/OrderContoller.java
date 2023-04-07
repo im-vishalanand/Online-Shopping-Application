@@ -38,7 +38,7 @@ public class OrderContoller {
 
 	private CurrentUserSession cs;
 
-	@PostMapping
+	@PostMapping("/addOrder")
 	public ResponseEntity<Orders> addOrderHandler(@Valid @RequestBody Orders orders, @RequestParam Integer addressId,
 			@RequestParam String uuid)
 			throws LoginException, OrderException, CustomerException, ProductException, AddressException {
@@ -55,7 +55,7 @@ public class OrderContoller {
 		return new ResponseEntity<>(order, HttpStatus.ACCEPTED);
 	}
 
-	@PutMapping("/return")
+	@PutMapping("/returnOrder")
 	public ResponseEntity<Orders> returnOrderHandler(@RequestParam Integer orderId, @RequestParam String uuid)
 			throws LoginException, OrderException {
 
@@ -70,7 +70,7 @@ public class OrderContoller {
 		return new ResponseEntity<>(order, HttpStatus.FOUND);
 	}
 
-	@PutMapping
+	@PutMapping("/cancelOrder")
 	public ResponseEntity<Orders> cancelOrderHandler(@RequestParam Integer orderId, @RequestParam String uuid)
 			throws OrderException, LoginException {
 
@@ -85,7 +85,7 @@ public class OrderContoller {
 		return new ResponseEntity<>(order, HttpStatus.ACCEPTED);
 	}
 
-	@GetMapping
+	@GetMapping("/viewAllOrder")
 	public ResponseEntity<List<Orders>> viewAllOrderHandler(@RequestParam String uuid)
 			throws OrderException, CustomerException, ProductException, LoginException {
 
@@ -101,8 +101,8 @@ public class OrderContoller {
 		return new ResponseEntity<>(orders, HttpStatus.FOUND);
 	}
 
-	@GetMapping("/dates/{dd-MM-yyyy}")
-	public ResponseEntity<List<Orders>> viewAllOrderHandler(@PathVariable("dd-MM-yyyy") String date,
+	@GetMapping("/viewAllOrderByDate")
+	public ResponseEntity<List<Orders>> viewAllOrderHandler(@RequestParam("dd-MM-yyyy") String date,
 			@RequestParam String uuid) throws OrderException, LoginException {
 
 		this.setCs(logService.getSessionByUuid(uuid));
@@ -119,7 +119,7 @@ public class OrderContoller {
 		return new ResponseEntity<>(orders, HttpStatus.FOUND);
 	}
 
-	@GetMapping("/orders")
+	@GetMapping("/viewOrderById")
 	public ResponseEntity<Orders> viewOrderByOrderIDHandler(@RequestParam Integer ordersId,
 			@RequestParam(required = true) String uuid)
 			throws OrderException, CustomerException, ProductException, LoginException {

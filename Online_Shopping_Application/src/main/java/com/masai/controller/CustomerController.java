@@ -32,7 +32,7 @@ public class CustomerController {
 
 	private CurrentUserSession cs;
 
-	@PostMapping
+	@PostMapping("/addCustomer")
 	public ResponseEntity<Customer> addCustomerHandler(@Valid @RequestBody Customer customer)
 			throws CustomerException, UserException {
 		customer.setRole("customer");
@@ -40,7 +40,7 @@ public class CustomerController {
 		return new ResponseEntity<>(savedcustomer, HttpStatus.OK);
 	}
 
-	@DeleteMapping
+	@DeleteMapping("/deleteCustomer")
 	public ResponseEntity<Customer> deleteCustomerHandler(@RequestParam Integer id,@RequestParam String uuid)
 			throws LoginException, CustomerException, UserException {
 
@@ -53,7 +53,7 @@ public class CustomerController {
 		return new ResponseEntity<>(deletedCustomer, HttpStatus.ACCEPTED);
 	}
 
-	@PutMapping
+	@PutMapping("/updateCustomer")
 	public ResponseEntity<Customer> updateCustomerHandler(@RequestBody Customer customer, @RequestParam String uuid)
 			throws CustomerException, LoginException {
 
@@ -71,7 +71,7 @@ public class CustomerController {
 	}
 
 
-	@GetMapping
+	@GetMapping("/viewCustomer")
 	public ResponseEntity<Customer> viewCustomerHandler(@RequestParam String uuid)
 			throws LoginException, CustomerException {
 

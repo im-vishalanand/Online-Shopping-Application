@@ -27,7 +27,7 @@ import com.masai.service.LogInService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/carts")
+@RequestMapping("/cart")
 public class CartController {
 
 	private CartService cSer;
@@ -36,7 +36,7 @@ public class CartController {
 
 	private CurrentUserSession cs;
 
-	@PostMapping
+	@PostMapping("/addProduct")
 	public ResponseEntity<Cart> addNewProduct(@Valid @RequestBody Product p,
 			@RequestParam Integer quantity, @RequestParam String uuid)
 			throws LoginException, CartException, ProductException {
@@ -56,7 +56,7 @@ public class CartController {
 	}
 
 
-	@DeleteMapping("/allProducts")
+	@DeleteMapping("/removeAllProducts")
 	public ResponseEntity<Cart> removeAllProduct(@RequestParam String uuid) throws LoginException, CartException {
 
 		this.setCs(logService.getSessionByUuid(uuid));
@@ -71,7 +71,7 @@ public class CartController {
 		return new ResponseEntity<>(cc, HttpStatus.OK);
 	}
 
-	@DeleteMapping("/products")
+	@DeleteMapping("/removeProduct")
 	public ResponseEntity<Cart> removeProduct(@RequestBody Product p, @RequestParam String uuid)
 			throws LoginException, CartException, ProductException {
 
@@ -89,8 +89,8 @@ public class CartController {
 		return new ResponseEntity<>(cc, HttpStatus.ACCEPTED);
 	}
 
-	@PutMapping("/{quantity}")
-	public ResponseEntity<Cart> updateProductQuantity(@PathVariable("quantity") Integer quantity,
+	@PutMapping("/updateProductQuantity")
+	public ResponseEntity<Cart> updateProductQuantity(@RequestParam("quantity") Integer quantity,
 			@RequestBody Product p, @RequestParam String uuid) throws LoginException, CartException, ProductException {
 
 		this.setCs(logService.getSessionByUuid(uuid));
@@ -106,7 +106,7 @@ public class CartController {
 		return new ResponseEntity<>(cc, HttpStatus.OK);
 	}
 
-	@GetMapping
+	@GetMapping("/viewAllProduct")
 	public ResponseEntity<Map<Product, Integer>> viewAllProduct(@RequestParam String uuid)
 			throws LoginException, CartException {
 

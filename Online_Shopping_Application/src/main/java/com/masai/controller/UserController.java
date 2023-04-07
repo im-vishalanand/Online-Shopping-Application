@@ -23,7 +23,7 @@ public class UserController {
 	@Autowired
 	private CustomerService customerService;
 
-	@PostMapping
+	@PostMapping("/addUser")
 	public ResponseEntity<Customer> addUserHandler(@Valid @RequestBody User user)
 			throws UserException, CustomerException {
 
