@@ -35,16 +35,20 @@ public class Orders {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer orderId;
 
-	@NotNull
+	@NotNull(message = "orderDate should not be null")
 	private LocalDate orderDate=LocalDate.now();
 
-	@NotBlank
-	@NotNull
-	@NotEmpty
+	@NotEmpty(message = "orderStatus cannot be empty")
+	@NotNull(message = "orderStatus cannot be null")
+	@NotBlank(message = "orderStatus cannot be blank")
 	private String orderStatus;
 
+	@NotNull(message = "addressId cannot be null")
 	private Integer addressId;
 
+	@NotEmpty(message = "location cannot be empty")
+	@NotNull(message = "location cannot be null")
+	@NotBlank(message = "location cannot be blank")
 	private String location;
 
 //	@JsonIgnore

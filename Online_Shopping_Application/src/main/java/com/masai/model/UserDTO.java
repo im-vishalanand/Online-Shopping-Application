@@ -17,13 +17,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UserDTO {
 
-	@Email
-	@NotNull
+	@Email(message = "please provide the correct email")
+	@NotEmpty(message = "email cannot be empty")
+	@NotNull(message = "email cannot be null")
+	@NotBlank(message = "email cannot be blank")
 	private String email;
 
-	@NotNull
-	@NotEmpty
-	@NotBlank
+	@NotEmpty(message = "password cannot be empty")
+	@NotNull(message = "password cannot be null")
+	@NotBlank(message = "password cannot be blank")
 	@Size(min = 6, max = 15, message = "please provide the currect password")
 	private String password;
 

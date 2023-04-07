@@ -29,9 +29,9 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer productId;
 
-	@NotNull
-	@NotEmpty
-	@NotBlank
+	@NotEmpty(message = "productName cannot be empty")
+	@NotNull(message = "productName cannot be null")
+	@NotBlank(message = "productName cannot be blank")
 	private String productName;
 
 	@NotNull
@@ -42,15 +42,17 @@ public class Product {
 
 	private String specification;
 
-	@NotNull
-	@NotEmpty
-	@NotBlank
+	@NotEmpty(message = "manufacturer cannot be empty")
+	@NotNull(message = "manufacturer cannot be null")
+	@NotBlank(message = "manufacturer cannot be blank")
 	private String manufacturer;
 
 	@Min(value = 1)
 	private Integer quantity;
 
-	@NotNull
+	@NotEmpty(message = "category cannot be empty")
+	@NotNull(message = "category cannot be null")
+	@NotBlank(message = "category cannot be blank")
 	private String category;
 
 	@JsonIgnore

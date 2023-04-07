@@ -27,22 +27,28 @@ public class User {
 	@Size(min = 3, max = 20, message = "firstname should be greater then 3 and less the 20")
 	private String firstName;
 
-	@NotNull
+	@NotEmpty(message = "lastName cannot be empty")
+	@NotNull(message = "lastName cannot be null")
+	@NotBlank(message = "lastName cannot be blank")
 	@Size(min = 2, max = 20, message = "lastname should be greater then 2 and less the 20")
 	private String lastName;
 
-	@NotNull(message = "please provide the mobile number")
-	@Size(min = 10, max = 10, message = "your mobile number length not appropreate")
+	@NotEmpty(message = "mobileNumber cannot be empty")
+	@NotNull(message = "mobileNumber cannot be null")
+	@NotBlank(message = "mobileNumber cannot be blank")
+	@Size(min = 10, max = 10, message = "mobile number should be of 10 digits only")
 	@Column(unique = true)
 	private String mobileNumber;
 
-	@NotNull
-	@NotBlank
-	@NotEmpty
-	@Size(min = 6, max = 15, message = "the password length is not apropriate")
+	@NotEmpty(message = "password cannot be empty")
+	@NotNull(message = "password cannot be null")
+	@NotBlank(message = "password cannot be blank")
+	@Size(min = 6, max = 15, message = "length of the password should be greater than 6 characters and smaller than 15 characters")
 	private String password;
 
-	@NotNull
+	@NotEmpty(message = "role cannot be empty")
+	@NotNull(message = "role cannot be null")
+	@NotBlank(message = "role cannot be blank")
 	@Size(min = 5, max = 8, message = "please privide role (admin or customer)")
 	private String role;
 

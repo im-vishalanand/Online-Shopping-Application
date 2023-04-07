@@ -10,6 +10,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,7 +25,9 @@ public class Category {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer catId;
 
-	@NotNull
+	@NotEmpty(message = "category cannot be empty")
+	@NotNull(message = "category cannot be null")
+	@NotBlank(message = "category cannot be blank")
 	@Column(unique = true)
 	private String category;
 

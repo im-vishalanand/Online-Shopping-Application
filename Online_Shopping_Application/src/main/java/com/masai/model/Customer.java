@@ -38,11 +38,15 @@ public class Customer {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer customerId;
 
-	@NotNull
+	@NotEmpty(message = "firstName cannot be empty")
+	@NotNull(message = "firstName cannot be null")
+	@NotBlank(message = "firstName cannot be blank")
 	@Size(min = 3, max = 20, message = "firstname should be greater then 3 and less the 20")
 	private String firstName;
 
-	@NotNull
+	@NotEmpty(message = "lastName cannot be empty")
+	@NotNull(message = "lastName cannot be null")
+	@NotBlank(message = "lastName cannot be blank")
 	@Size(min = 2, max = 20, message = "lastname should be greater then 2 and less the 20")
 	private String lastName;
 
@@ -52,15 +56,20 @@ public class Customer {
 	private String mobileNumber;
 
 	@Email(message = "please provide the correct email")
-	@NotNull(message = "please provide the email...!")
+	@NotEmpty(message = "email cannot be empty")
+	@NotNull(message = "email cannot be null")
+	@NotBlank(message = "email cannot be blank")
 	@Column(unique = true)
 	private String email;
 
+	@NotEmpty(message = "role cannot be empty")
+	@NotNull(message = "role cannot be null")
+	@NotBlank(message = "role cannot be blank")
 	private String role;
 
-	@NotNull
-	@NotBlank
-	@NotEmpty
+	@NotEmpty(message = "password cannot be empty")
+	@NotNull(message = "password cannot be null")
+	@NotBlank(message = "password cannot be blank")
 	@Size(min = 6, max = 15, message = "the password length is not apropriate")
 	private String password;
 
