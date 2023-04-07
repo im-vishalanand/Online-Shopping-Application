@@ -22,7 +22,7 @@ import lombok.Setter;
 public class Category {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer catId;
 
 	@NotEmpty(message = "category cannot be empty")

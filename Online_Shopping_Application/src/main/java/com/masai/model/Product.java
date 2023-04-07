@@ -26,7 +26,7 @@ import lombok.ToString;
 public class Product {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer productId;
 
 	@NotEmpty(message = "productName cannot be empty")

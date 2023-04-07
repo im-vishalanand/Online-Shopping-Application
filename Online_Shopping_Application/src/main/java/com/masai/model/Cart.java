@@ -16,7 +16,7 @@ import jakarta.persistence.JoinColumn;
 public class Cart {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JoinColumn(name = "cart_id")
 	private Integer cartId;
 
